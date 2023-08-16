@@ -163,7 +163,11 @@
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "G:\\Projects\\C#\\Api\\Almas\\Entities\\Entities.csproj": {
+                "projectPath": "G:\\Projects\\C#\\Api\\Almas\\Entities\\Entities.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
