@@ -5,8 +5,8 @@ using Entities.Common;
 namespace DTO;
 
 public abstract class BaseDto<TDto, TEntity, TKey>  : IHaveCustomMapping
-    where TDto : class, new()
-    where TEntity :class, IEntity<TKey>, new()
+    where TDto : class
+    where TEntity :class, IEntity<TKey>
 {
     public TKey? Id { get; init; }
     
@@ -50,7 +50,7 @@ public abstract class BaseDto<TDto, TEntity, TKey>  : IHaveCustomMapping
 
 }
 public abstract class BaseDto<TDto, TEntity> : BaseDto<TDto, TEntity, int>
-    where TDto : class, new()
-    where TEntity :class, IEntity<int>, new()
+    where TDto : class
+    where TEntity :class, IEntity<int>
 {
 }

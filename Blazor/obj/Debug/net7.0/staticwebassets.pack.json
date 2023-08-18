@@ -17,8 +17,20 @@
       "PackagePath": "staticwebassets\\css\\tailwind.css"
     },
     {
+      "Id": "G:\\Projects\\C#\\Api\\Almas\\Blazor\\wwwroot\\images\\1.jpg",
+      "PackagePath": "staticwebassets\\images\\1.jpg"
+    },
+    {
+      "Id": "G:\\Projects\\C#\\Api\\Almas\\Blazor\\wwwroot\\images\\2.jpg",
+      "PackagePath": "staticwebassets\\images\\2.jpg"
+    },
+    {
       "Id": "G:\\Projects\\C#\\Api\\Almas\\Blazor\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "G:\\Projects\\C#\\Api\\Almas\\Blazor\\wwwroot\\test.html",
+      "PackagePath": "staticwebassets\\test.html"
     },
     {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.Blazor.Microsoft.AspNetCore.StaticWebAssets.props",

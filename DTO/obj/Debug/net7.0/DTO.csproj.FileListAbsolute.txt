@@ -10,3 +10,8 @@ G:\Projects\C#\Api\Almas\DTO\obj\Debug\net7.0\DTO.dll
 G:\Projects\C#\Api\Almas\DTO\obj\Debug\net7.0\refint\DTO.dll
 G:\Projects\C#\Api\Almas\DTO\obj\Debug\net7.0\DTO.pdb
 G:\Projects\C#\Api\Almas\DTO\obj\Debug\net7.0\ref\DTO.dll
+G:\Projects\C#\Api\Almas\DTO\bin\Debug\net7.0\Common.dll
+G:\Projects\C#\Api\Almas\DTO\bin\Debug\net7.0\Entities.dll
+G:\Projects\C#\Api\Almas\DTO\bin\Debug\net7.0\Entities.pdb
+G:\Projects\C#\Api\Almas\DTO\bin\Debug\net7.0\Common.pdb
+G:\Projects\C#\Api\Almas\DTO\obj\Debug\net7.0\DTO.csproj.CopyComplete

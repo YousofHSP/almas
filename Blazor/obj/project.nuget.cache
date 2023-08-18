@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "swbx3rB9V8lqVC/fAkA9ZkBDzUcYPqUI6NBCCh8cwb9wHp5C5y3nQxu3oe/ZKAY9q0IYxmzqCnMgI4U16/f4fQ==",
+  "dgSpecHash": "NndO3m0uMWZI3RtchtjmodjxQAG6S26BcFR47TlN+fxRkSEcVgCbavg8VfhjTDYQvu5YpOWurUiqIixWfc6G5A==",
   "success": true,
   "projectFilePath": "G:\\Projects\\C#\\Api\\Almas\\Blazor\\Blazor.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "C:\\Users\\youso\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\youso\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\youso\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
+    "C:\\Users\\youso\\.nuget\\packages\\blazor.heroicons\\1.2.3\\blazor.heroicons.1.2.3.nupkg.sha512",
     "C:\\Users\\youso\\.nuget\\packages\\microsoft.aspnetcore.authorization\\7.0.7\\microsoft.aspnetcore.authorization.7.0.7.nupkg.sha512",
     "C:\\Users\\youso\\.nuget\\packages\\microsoft.aspnetcore.components\\7.0.7\\microsoft.aspnetcore.components.7.0.7.nupkg.sha512",
     "C:\\Users\\youso\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\7.0.7\\microsoft.aspnetcore.components.analyzers.7.0.7.nupkg.sha512",

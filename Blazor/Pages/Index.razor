@@ -1,11 +1,39 @@
 ﻿@page "/"
 
-<div class="card w-96 bg-base-100 shadow-xl">
-  <div class="card-body">
-    <h2 class="card-title">Shoes!</h2>
-    <p>If a dog chews shoes whose shoes does he choose?</p>
-    <div class="card-actions justify-end">
-      <button class="btn btn-primary">Buy Now</button>
+<section class="hero min-h-screen">
+    <div class="hero-content text-center">
+        <div class="max-w-md">
+            <h1 class="text-5xl font-bold">باشگاه مشتریان الماس</h1>
+            <p class="py-6">تحت نظارت گروه مشاورین برتر جوان</p>
+        </div>
     </div>
-  </div>
-</div>
+</section>
+
+<section class="flex justify-evenly px-52 py-14 bg-base-200">
+    <button class="btn btn-outline w-24 h-24">
+        <UserGroupIcon class="w-10 h-10"></UserGroupIcon>
+        بیمه
+    </button>
+    <button class="btn btn-outline w-24 h-24">
+        <AcademicCapIcon class="w-10 h-10"></AcademicCapIcon>
+        آموزش
+    </button>
+    <button class="btn btn-outline w-24 h-24">
+        <WrenchIcon class="w-10 h-10"></WrenchIcon>
+        خدمات
+    </button>
+    <button class="btn btn-outline w-24 h-24">
+        <GiftIcon class="w-10 h-10"></GiftIcon>
+        محصولات
+    </button>
+</section>
+<section class="px-10">
+    <div class="text-center py-20 ">
+        <h2 class="text-2xl font-bold">برترین فروشگاه ها</h2>
+    </div>
+    <div class="m-auto grid grid-cols-3 gap-3">
+        <ShopItem/>
+        <ShopItem/>
+        <ShopItem/>
+    </div>
+</section>

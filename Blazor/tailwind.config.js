@@ -2,13 +2,21 @@
 module.exports = {
   content:  ['./**/*.{razor,html,css}', './**/**/*.{razor,html,css}'],
   theme: {
-    extend: {},
+    extend: {
+      width: {
+        '134': '34rem',
+        '188': '47rem',
+      }
+    },
   },
   plugins: [
-    require("daisyui")
+    require("daisyui"),
+    require("tailwindcss-flip"),
+    require('@tailwindcss/typography'),
   ],
   daisyui: {
-    themes: ["light", "dark"],
+    themes: false,
+    rtl: true
   },
 }
 

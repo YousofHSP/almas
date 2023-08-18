@@ -7,12 +7,12 @@ namespace Entities;
 
 public class Shop: BaseEntity
 {
-    [Required] public string Title { get; set; } = null!;
-    [Required] public string Image { get; set; } = null!;
-    [Required] public string Description { get; set; } = null!;
+    [Required] public required string Title { get; set; }
+    [Required] public required string Image { get; set; }
+    [Required] public required string Description { get; set; }
     [Required] public int UserId { get; set; }
 
-    public User User { get; set; } = null!;
+    public required User User { get; set; }
 }
 
 public class ShopConfiguration : IEntityTypeConfiguration<Shop>
