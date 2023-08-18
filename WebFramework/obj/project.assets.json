@@ -5697,6 +5697,7 @@
       "Microsoft.AspNetCore.Authorization >= 7.0.10",
       "Microsoft.AspNetCore.Diagnostics >= 2.2.0",
       "Microsoft.AspNetCore.HttpsPolicy >= 2.2.0",
+      "Microsoft.AspNetCore.Identity >= 2.2.0",
       "Microsoft.AspNetCore.Mvc.Versioning >= 5.1.0",
       "Newtonsoft.Json >= 13.0.3",
       "Service >= 1.0.0",
@@ -5772,6 +5773,10 @@
             "version": "[2.2.0, )"
           },
           "Microsoft.AspNetCore.HttpsPolicy": {
+            "target": "Package",
+            "version": "[2.2.0, )"
+          },
+          "Microsoft.AspNetCore.Identity": {
             "target": "Package",
             "version": "[2.2.0, )"
           },

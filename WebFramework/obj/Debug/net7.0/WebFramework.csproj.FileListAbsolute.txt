@@ -3,10 +3,8 @@ G:\Projects\C#\Api\Almas\WebFramework\bin\Debug\net7.0\WebFramework.dll
 G:\Projects\C#\Api\Almas\WebFramework\bin\Debug\net7.0\WebFramework.pdb
 G:\Projects\C#\Api\Almas\WebFramework\bin\Debug\net7.0\Common.dll
 G:\Projects\C#\Api\Almas\WebFramework\bin\Debug\net7.0\Data.dll
-G:\Projects\C#\Api\Almas\WebFramework\bin\Debug\net7.0\DTO.dll
 G:\Projects\C#\Api\Almas\WebFramework\bin\Debug\net7.0\Entities.dll
 G:\Projects\C#\Api\Almas\WebFramework\bin\Debug\net7.0\Service.dll
-G:\Projects\C#\Api\Almas\WebFramework\bin\Debug\net7.0\DTO.pdb
 G:\Projects\C#\Api\Almas\WebFramework\bin\Debug\net7.0\Service.pdb
 G:\Projects\C#\Api\Almas\WebFramework\bin\Debug\net7.0\Common.pdb
 G:\Projects\C#\Api\Almas\WebFramework\bin\Debug\net7.0\Data.pdb
@@ -21,3 +19,5 @@ G:\Projects\C#\Api\Almas\WebFramework\obj\Debug\net7.0\WebFramework.dll
 G:\Projects\C#\Api\Almas\WebFramework\obj\Debug\net7.0\refint\WebFramework.dll
 G:\Projects\C#\Api\Almas\WebFramework\obj\Debug\net7.0\WebFramework.pdb
 G:\Projects\C#\Api\Almas\WebFramework\obj\Debug\net7.0\ref\WebFramework.dll
+G:\Projects\C#\Api\Almas\WebFramework\bin\Debug\net7.0\DTO.dll
+G:\Projects\C#\Api\Almas\WebFramework\bin\Debug\net7.0\DTO.pdb

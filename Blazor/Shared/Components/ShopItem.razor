@@ -1,16 +1,19 @@
-﻿<div class="max-w-lg card card-side bg-base-100 shadow-xl">
+﻿@using DTO
+<div class="max-w-lg card card-side bg-base-100 shadow-xl">
     <figure>
-        <img class="w-48 h-56" src="images/1.jpg" alt="Movie"/>
+        <img class="w-48 h-56" src="@Shop.Image" alt="Movie"/>
     </figure>
     <div class="card-body">
-        <h2 class="card-title">فروشگاه برزگ شیر رضا</h2>
-        <p>Click the button to watch on Jetflix app.</p>
+        <h2 class="card-title">@Shop.Title</h2>
+        <p>@Shop.Description</p>
         <div class="card-actions justify-end">
-            <a href="Shops/1" class="btn btn-sm btn-outline">بیشتر</a>
+            <a href="Shops/@Shop.Id" class="btn btn-sm btn-outline">بیشتر</a>
         </div>
     </div>
 </div>
 
 @code {
 
+    [Parameter]
+    public required ShopResDto Shop { get; set; }
 }

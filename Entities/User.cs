@@ -15,6 +15,7 @@ public class User : IdentityUser<int>, IEntity<int>
     public string? Image { get; set; }
     public string? Bio { get; set; }
 
+    public DateTimeOffset LastLoginDate { get; set; } = DateTimeOffset.Now;
     public DateTimeOffset CreatedAt { get; set; } = DateTimeOffset.Now;
 
     public IEnumerable<Shop>? Shops { get; set; }

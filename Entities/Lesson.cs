@@ -10,8 +10,7 @@ public class Lesson: BaseEntity
     
     [Required] public string Title { get; set; } = null!;
     public string? Description { get; set; }
-    [Required] public LessonType Type { get; set; }
-    [Required] public string Source { get; set; } = null!;
+    [Required] public LessonType LessonType { get; set; }
     [Required] public int CourseId { get; set; }
 
     public Course Course { get; set; } = null!;

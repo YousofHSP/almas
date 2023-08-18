@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebFramework", "WebFramework\WebFramework.csproj", "{CF87187D-BB62-4ED2-8F66-B00E18BE1B28}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "Api\Api.csproj", "{E6A1A3FB-ACE6-4B4E-A40A-ABCA3D3F6093}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,5 +50,9 @@ Global
 		{CF87187D-BB62-4ED2-8F66-B00E18BE1B28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF87187D-BB62-4ED2-8F66-B00E18BE1B28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF87187D-BB62-4ED2-8F66-B00E18BE1B28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6A1A3FB-ACE6-4B4E-A40A-ABCA3D3F6093}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6A1A3FB-ACE6-4B4E-A40A-ABCA3D3F6093}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6A1A3FB-ACE6-4B4E-A40A-ABCA3D3F6093}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6A1A3FB-ACE6-4B4E-A40A-ABCA3D3F6093}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

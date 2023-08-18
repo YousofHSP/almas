@@ -36,6 +36,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENvbXBvbmVudHNcU2hvcEl0ZW0ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[G:/Projects/C\#/Api/Almas/Blazor/Shared/DisplaySpinner.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXERpc3BsYXlTcGlubmVyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [G:/Projects/C\#/Api/Almas/Blazor/Shared/Footer.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXEZvb3Rlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 

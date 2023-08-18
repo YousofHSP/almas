@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Common.Exceptions
 {
-    internal class NotFoundException : AppException
+    public class NotFoundException : AppException
     {
         public NotFoundException()
             : base(ApiResultStatusCode.NotFound)

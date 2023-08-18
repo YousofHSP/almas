@@ -1,4 +1,5 @@
 ﻿@page "/"
+@inherits IndexBase
 
 <section class="hero min-h-screen">
     <div class="hero-content text-center">
@@ -10,30 +11,40 @@
 </section>
 
 <section class="flex justify-evenly px-52 py-14 bg-base-200">
-    <button class="btn btn-outline w-24 h-24">
+    <a href="/Shops" class="btn btn-outline w-24 h-24">
         <UserGroupIcon class="w-10 h-10"></UserGroupIcon>
         بیمه
-    </button>
-    <button class="btn btn-outline w-24 h-24">
+    </a>
+    <a href="/Shops" class="btn btn-outline w-24 h-24">
         <AcademicCapIcon class="w-10 h-10"></AcademicCapIcon>
         آموزش
-    </button>
-    <button class="btn btn-outline w-24 h-24">
+    </a>
+    <a href="/Shops" class="btn btn-outline w-24 h-24">
         <WrenchIcon class="w-10 h-10"></WrenchIcon>
         خدمات
-    </button>
-    <button class="btn btn-outline w-24 h-24">
+    </a>
+    <a href="/Shops" class="btn btn-outline w-24 h-24">
         <GiftIcon class="w-10 h-10"></GiftIcon>
         محصولات
-    </button>
+    </a>
 </section>
+
 <section class="px-10">
-    <div class="text-center py-20 ">
-        <h2 class="text-2xl font-bold">برترین فروشگاه ها</h2>
-    </div>
-    <div class="m-auto grid grid-cols-3 gap-3">
-        <ShopItem/>
-        <ShopItem/>
-        <ShopItem/>
-    </div>
+    @if (Shops is null)
+    {
+        <DisplaySpinner/>
+    }
+    else
+    {
+        <div class="text-center py-20 ">
+            <h2 class="text-2xl font-bold">برترین فروشگاه ها</h2>
+        </div>
+        <div class="m-auto grid grid-cols-3 gap-3">
+            @foreach (var shop in Shops)
+            {
+                <ShopItem Shop="shop"/>
+
+            }
+        </div>
+    }
 </section>
