@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "NV5LRohVnkP0UcPlVXObZZUieOq5DefEGfc1dKefRRc=",
+  "Hash": "SjH3oXDRlajofU6fBTHFd0SxYMHa11kSbCT7fbUruq8=",
   "Source": "Blazor",
   "BasePath": "/",
   "Mode": "Root",
@@ -8517,23 +8517,6 @@
       "OriginalItemSpec": "wwwroot\\fonts\\iransans\\fonts\\eot\\IRANSansWeb(FaNum).eot"
     },
     {
-      "Identity": "G:\\Projects\\C#\\Api\\Almas\\Blazor\\wwwroot\\fonts\\iransans\\fonts\\iransansttf.zip",
-      "SourceId": "Blazor",
-      "SourceType": "Discovered",
-      "ContentRoot": "G:\\Projects\\C#\\Api\\Almas\\Blazor\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "fonts/iransans/fonts/iransansttf.zip",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\fonts\\iransans\\fonts\\iransansttf.zip"
-    },
-    {
       "Identity": "G:\\Projects\\C#\\Api\\Almas\\Blazor\\wwwroot\\fonts\\iransans\\fonts\\ttf\\IRANSansWeb(FaNum)_Black.ttf",
       "SourceId": "Blazor",
       "SourceType": "Discovered",
@@ -8872,6 +8855,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\2.jpg"
+    },
+    {
+      "Identity": "G:\\Projects\\C#\\Api\\Almas\\Blazor\\wwwroot\\images\\background.jpg",
+      "SourceId": "Blazor",
+      "SourceType": "Discovered",
+      "ContentRoot": "G:\\Projects\\C#\\Api\\Almas\\Blazor\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "images/background.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\background.jpg"
+    },
+    {
+      "Identity": "G:\\Projects\\C#\\Api\\Almas\\Blazor\\wwwroot\\images\\logo-white.png",
+      "SourceId": "Blazor",
+      "SourceType": "Discovered",
+      "ContentRoot": "G:\\Projects\\C#\\Api\\Almas\\Blazor\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "images/logo-white.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\logo-white.png"
     },
     {
       "Identity": "G:\\Projects\\C#\\Api\\Almas\\Blazor\\wwwroot\\images\\logo.png",

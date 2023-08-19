@@ -8337,6 +8337,10 @@ details.collapse summary::-webkit-details-marker {
   z-index: 1;
 }
 
+.z-50 {
+  z-index: 50;
+}
+
 .m-auto {
   margin: auto;
 }
@@ -8421,6 +8425,10 @@ details.collapse summary::-webkit-details-marker {
 
 .mt-3 {
   margin-top: 0.75rem;
+}
+
+.mt-10 {
+  margin-top: 2.5rem;
 }
 
 .block {
@@ -10753,6 +10761,10 @@ details.collapse summary::-webkit-details-marker {
 
 .pt-52 {
   padding-top: 13rem;
+}
+
+.pt-10 {
+  padding-top: 2.5rem;
 }
 
 .text-center {

@@ -53,10 +53,6 @@
       "PackagePath": "staticwebassets\\fonts\\iransans\\fonts\\eot\\IRANSansWeb(FaNum)_UltraLight.eot"
     },
     {
-      "Id": "G:\\Projects\\C#\\Api\\Almas\\Blazor\\wwwroot\\fonts\\iransans\\fonts\\iransansttf.zip",
-      "PackagePath": "staticwebassets\\fonts\\iransans\\fonts\\iransansttf.zip"
-    },
-    {
       "Id": "G:\\Projects\\C#\\Api\\Almas\\Blazor\\wwwroot\\fonts\\iransans\\fonts\\ttf\\IRANSansWeb(FaNum).ttf",
       "PackagePath": "staticwebassets\\fonts\\iransans\\fonts\\ttf\\IRANSansWeb(FaNum).ttf"
     },
@@ -135,6 +131,14 @@
     {
       "Id": "G:\\Projects\\C#\\Api\\Almas\\Blazor\\wwwroot\\images\\2.jpg",
       "PackagePath": "staticwebassets\\images\\2.jpg"
+    },
+    {
+      "Id": "G:\\Projects\\C#\\Api\\Almas\\Blazor\\wwwroot\\images\\background.jpg",
+      "PackagePath": "staticwebassets\\images\\background.jpg"
+    },
+    {
+      "Id": "G:\\Projects\\C#\\Api\\Almas\\Blazor\\wwwroot\\images\\logo-white.png",
+      "PackagePath": "staticwebassets\\images\\logo-white.png"
     },
     {
       "Id": "G:\\Projects\\C#\\Api\\Almas\\Blazor\\wwwroot\\images\\logo.png",
