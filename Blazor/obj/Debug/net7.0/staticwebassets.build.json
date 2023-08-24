@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "SjH3oXDRlajofU6fBTHFd0SxYMHa11kSbCT7fbUruq8=",
+  "Hash": "98zRXp4OEEd7OIolghJvHGHutydTHPzhKJLhFMMvOs8=",
   "Source": "Blazor",
   "BasePath": "/",
   "Mode": "Root",
@@ -202,6 +202,40 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "G:\\Projects\\C#\\Api\\Almas\\Common\\bin\\Debug\\net7.0\\Common.pdb"
+    },
+    {
+      "Identity": "G:\\Projects\\C#\\Api\\Almas\\Blazor\\bin\\Debug\\net7.0\\wwwroot\\_framework\\Data.dll",
+      "SourceId": "Blazor",
+      "SourceType": "Computed",
+      "ContentRoot": "G:\\Projects\\C#\\Api\\Almas\\Blazor\\bin\\Debug\\net7.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Data.dll",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "BlazorWebAssemblyResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "G:\\Projects\\C#\\Api\\Almas\\Data\\bin\\Debug\\net7.0\\Data.dll"
+    },
+    {
+      "Identity": "G:\\Projects\\C#\\Api\\Almas\\Blazor\\bin\\Debug\\net7.0\\wwwroot\\_framework\\Data.pdb",
+      "SourceId": "Blazor",
+      "SourceType": "Computed",
+      "ContentRoot": "G:\\Projects\\C#\\Api\\Almas\\Blazor\\bin\\Debug\\net7.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Data.pdb",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "BlazorWebAssemblyResource",
+      "AssetTraitValue": "symbol",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "G:\\Projects\\C#\\Api\\Almas\\Data\\bin\\Debug\\net7.0\\Data.pdb"
     },
     {
       "Identity": "G:\\Projects\\C#\\Api\\Almas\\Blazor\\bin\\Debug\\net7.0\\wwwroot\\_framework\\dotnet.7.0.7.nvbdcvan47.js",
@@ -6069,6 +6103,23 @@
       "OriginalItemSpec": "G:\\Projects\\C#\\Api\\Almas\\Blazor\\bin\\Debug\\net7.0\\wwwroot\\_framework\\System.Runtime.Serialization.Xml.dll"
     },
     {
+      "Identity": "G:\\Projects\\C#\\Api\\Almas\\Blazor\\obj\\Debug\\net7.0\\build-gz\\Il5QFWGy.gz",
+      "SourceId": "Blazor",
+      "SourceType": "Computed",
+      "ContentRoot": "G:\\Projects\\C#\\Api\\Almas\\Blazor\\bin\\Debug\\net7.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Data.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "G:\\Projects\\C#\\Api\\Almas\\Blazor\\bin\\Debug\\net7.0\\wwwroot\\_framework\\Data.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "G:\\Projects\\C#\\Api\\Almas\\Blazor\\bin\\Debug\\net7.0\\wwwroot\\_framework\\Data.dll"
+    },
+    {
       "Identity": "G:\\Projects\\C#\\Api\\Almas\\Blazor\\obj\\Debug\\net7.0\\build-gz\\iS5KgYwK.gz",
       "SourceId": "Blazor",
       "SourceType": "Computed",
@@ -6645,6 +6696,23 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "G:\\Projects\\C#\\Api\\Almas\\Blazor\\bin\\Debug\\net7.0\\wwwroot\\_framework\\System.Security.Cryptography.Algorithms.dll"
+    },
+    {
+      "Identity": "G:\\Projects\\C#\\Api\\Almas\\Blazor\\obj\\Debug\\net7.0\\build-gz\\NILs1oxb.gz",
+      "SourceId": "Blazor",
+      "SourceType": "Computed",
+      "ContentRoot": "G:\\Projects\\C#\\Api\\Almas\\Blazor\\bin\\Debug\\net7.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Data.pdb.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "G:\\Projects\\C#\\Api\\Almas\\Blazor\\bin\\Debug\\net7.0\\wwwroot\\_framework\\Data.pdb",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "G:\\Projects\\C#\\Api\\Almas\\Blazor\\bin\\Debug\\net7.0\\wwwroot\\_framework\\Data.pdb"
     },
     {
       "Identity": "G:\\Projects\\C#\\Api\\Almas\\Blazor\\obj\\Debug\\net7.0\\build-gz\\np9IvvMM.gz",

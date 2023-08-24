@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "mlo9ic8y3DzKzqg8jVrw40s+uR9iPB9pH+N6HS+B3ozhDJUjOpGVF6tHCWjOyMcqwHJfZDB67/ajCzhvyuUawQ==",
+  "dgSpecHash": "9RZmXepYvXWMQmF1V7VfxrmJuvNphhgsVqE29ZUapj5L+2HsZiOYBYsnSFIcbKwKqXT9kc7OWhXdFc506MOZrw==",
   "success": true,
   "projectFilePath": "G:\\Projects\\C#\\Api\\Almas\\DTO\\DTO.csproj",
   "expectedPackageFiles": [
@@ -46,6 +46,7 @@
     "C:\\Users\\youso\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "C:\\Users\\youso\\.nuget\\packages\\pluralize.net\\1.0.2\\pluralize.net.1.0.2.nupkg.sha512",
     "C:\\Users\\youso\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
+    "C:\\Users\\youso\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
     "C:\\Users\\youso\\.nuget\\packages\\system.configuration.configurationmanager\\5.0.0\\system.configuration.configurationmanager.5.0.0.nupkg.sha512",
     "C:\\Users\\youso\\.nuget\\packages\\system.diagnostics.diagnosticsource\\5.0.0\\system.diagnostics.diagnosticsource.5.0.0.nupkg.sha512",
     "C:\\Users\\youso\\.nuget\\packages\\system.drawing.common\\5.0.0\\system.drawing.common.5.0.0.nupkg.sha512",

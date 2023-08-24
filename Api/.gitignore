@@ -32,3 +32,5 @@ msbuild.log
 msbuild.err
 msbuild.wrn
 fonts
+uploads
+uploads/

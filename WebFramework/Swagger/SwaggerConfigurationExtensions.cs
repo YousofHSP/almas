@@ -39,7 +39,7 @@ public static class SwaggerConfigurationExtensions
                 //Enable to use [SwaggerRequestExample] & [SwaggerResponseExample]
                 options.ExampleFilters();
 
-                //Adds an Upload button to endpoints which have [AddSwaggerFileUploadButton]
+                //Adds an UploadFile button to endpoints which have [AddSwaggerFileUploadButton]
                 // options.OperationFilter<>();
 
                 //Set summary of action if not already set

@@ -1,0 +1,73 @@
+﻿<div class="navbar bg-base-100 fixed z-50">
+    <div class="navbar-start">
+        <div class="dropdown">
+            <label tabindex="0" class="btn btn-ghost lg:hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16"/>
+                </svg>
+            </label>
+            <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                @foreach (var menuItem in MenuItems)
+                {
+                    <li>
+                        <NavLink href="@menuItem.Href" Match="@menuItem.FullMatch">
+                            @menuItem.Title
+                        </NavLink>
+                    </li>
+                    
+                }
+            </ul>
+        </div>
+        <a class="btn btn-ghost normal-case text-xl">باشگاه الماس</a>
+    </div>
+    <div class="navbar-center hidden lg:flex">
+        <ul class="menu lg:menu-horizontal rounded-box">
+            @foreach (var menuItem in MenuItems)
+            {
+                <li class="mx-2">
+                    <NavLink href="@menuItem.Href" Match="@menuItem.FullMatch">
+                        <Heroicon Name="@menuItem.Icon" Type="HeroiconType.Outline" class="h-5 w-5" />
+                        @menuItem.Title
+                    </NavLink>
+                </li>
+                
+            }
+        </ul>
+    </div>
+    <div class="navbar-end">
+        <a href="/Login" class="btn btn-ghost btn-circle">
+            <UserIcon class="h-5 w-5"/>
+        </a>
+    </div>
+</div>
+
+@code {
+
+    public class MenuItem
+    {
+        public MenuItem(string title, string href, string icon, NavLinkMatch fullMatch = NavLinkMatch.Prefix)
+        {
+            Title = title;
+            Href = href;
+            FullMatch = fullMatch;
+            Icon = icon;
+        }
+        public string Title { get; set; }
+        public string Href { get; set; }
+        public NavLinkMatch FullMatch { get; set; }
+        public string Icon { get; set; }
+    }
+
+    public required IEnumerable<MenuItem> MenuItems { get; set; }
+    protected override void OnInitialized()
+    {
+        MenuItems = new List<MenuItem>()
+        {
+            new MenuItem("داشبورد", "/Admin", HeroiconName.Home, NavLinkMatch.All),
+            new MenuItem("فروشگاه ها", "/Admin/Shops", HeroiconName.BuildingStorefront),
+            new MenuItem("بیمه ها", "/Admin/Insurers", HeroiconName.UserGroup),
+
+        };
+    }
+
+}

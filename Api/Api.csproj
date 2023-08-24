@@ -4,6 +4,7 @@
         <TargetFramework>net7.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <ApplicationIcon>favicon.ico</ApplicationIcon>
     </PropertyGroup>
 
     <ItemGroup>
@@ -21,6 +22,16 @@
     <ItemGroup>
       <ProjectReference Include="..\WebFramework\WebFramework.csproj" />
     </ItemGroup>
+
+
+
+    <ItemGroup>
+      <Folder Include="Controllers\admin\" />
+      <Folder Include="uploads\" />
+      <Folder Include="wwwroot\" />
+      <Folder Include="wwwroot\uploads\" />
+    </ItemGroup>
+
 
 
 

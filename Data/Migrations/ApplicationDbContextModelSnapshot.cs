@@ -57,6 +57,34 @@ namespace Data.Migrations
                     b.ToTable("Courses");
                 });
 
+            modelBuilder.Entity("Entities.Insurer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTimeOffset>("CreatedAt")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Insurers");
+                });
+
             modelBuilder.Entity("Entities.Lesson", b =>
                 {
                     b.Property<int>("Id")
@@ -139,10 +167,6 @@ namespace Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Image")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -165,8 +189,15 @@ namespace Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("ContentType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTimeOffset>("CreatedAt")
                         .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("FileName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Parent")
                         .HasColumnType("int");
@@ -174,8 +205,7 @@ namespace Data.Migrations
                     b.Property<int>("ParentId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Source")
-                        .IsRequired()
+                    b.Property<string>("StoredFileName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Type")
@@ -392,6 +422,17 @@ namespace Data.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("Entities.Insurer", b =>
+                {
+                    b.HasOne("Entities.User", "User")
+                        .WithMany("Insurers")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Entities.Lesson", b =>
                 {
                     b.HasOne("Entities.Course", "Course")
@@ -473,6 +514,8 @@ namespace Data.Migrations
             modelBuilder.Entity("Entities.User", b =>
                 {
                     b.Navigation("Courses");
+
+                    b.Navigation("Insurers");
 
                     b.Navigation("Shops");
                 });

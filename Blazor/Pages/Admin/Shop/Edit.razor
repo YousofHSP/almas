@@ -1,0 +1,70 @@
+﻿@page "/Admin/Shops/{Id:int}/Edit"
+@layout AdminLayout
+@using System.Net.Http.Headers
+@inject NavigationManager NavigationManager
+
+@if (Model is null)
+{
+    <DisplaySpinner/>
+}
+else
+{
+    <EditForm Model="@_shop" OnValidSubmit="@Submit">
+        <DataAnnotationsValidator />
+        <ValidationSummary class="text-error" />
+        <div class="card w-1/2">
+            <div class="card-body">
+                <div class="form-control">
+                    <label class="label">
+                        <span class="label-text">عنوان</span>
+                    </label>
+                    <InputText id="title" class="input input-bordered" @bind-Value="_shop!.Title"></InputText>
+                    
+                </div>
+                <div class="form-control">
+                    <label class="label">
+                        <span class="label-text">توضیحات</span>
+                    </label>
+                    <InputTextArea id="description" class="input input-bordered" @bind-Value="_shop!.Description"></InputTextArea>
+                </div>
+                <button class="btn btn-outline" type="submit">ثبت</button>
+            </div>
+        </div>
+    </EditForm>
+}
+
+@code {
+    ShopDto? _shop;
+
+    [Parameter]
+    public int Id { get; set; }
+    
+    private ShopResDto? Model { get; set; }
+
+    [Inject]
+    private IAdminShopService Service { get; set; } = null!;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Model = await Service.Get(Id);
+        if (Model is not null)
+        {
+            _shop = new ShopDto()
+            {
+                Description = Model.Description,
+                Title = Model.Title,
+                UserId = Model.UserId,
+                Id = Model.Id,
+            };
+        }
+    }
+    private async void Submit()
+    {
+        Model = null;
+        if (_shop is null) return;
+        var response = await Service.Update(_shop.Id,_shop);
+        if(response is not null) NavigationManager.NavigateTo("/Admin/Shops");
+    }
+
+    
+}

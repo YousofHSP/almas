@@ -1,0 +1,17 @@
+﻿@using DTO
+<div class="card w-96 bg-base-100 shadow-xl">
+  @if (!string.IsNullOrEmpty(Insurer.Image))
+  {
+    <figure><img src="@Insurer.Image" alt="insurer"/></figure>
+  }
+  <div class="card-body">
+    <h2 class="card-title">@Insurer.Title</h2>
+    <p>@Insurer.Description</p>
+    <div class="card-actions justify-end">
+      <a href="Insurers/@Insurer.Id" class="btn btn-outline">بیشتر</a>
+    </div>
+  </div>
+</div>
+@code {
+    [Parameter] public required InsurerResDto Insurer { get; set; }
+}

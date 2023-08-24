@@ -11,32 +11,34 @@ using WebFramework.Filters;
 namespace WebFramework.Api;
 
 [ApiVersion("1")]
+[Route("api/v{version:ApiVersion}/admin/[controller]")]
+
 public class CrudController<TDto, TResDto, TEntity, TKey> : BaseController
-    where TEntity : class, IEntity<TKey>, new()
-    where TDto : BaseDto<TDto, TEntity, TKey>, new()
-    where TResDto : BaseDto<TResDto, TEntity, TKey>, new()
+    where TEntity : class, IEntity<TKey>
+    where TDto : BaseDto<TDto, TEntity, TKey>
+    where TResDto : BaseDto<TResDto, TEntity, TKey>
 {
-    private readonly IRepository<TEntity> _repository;
-    private readonly IMapper _mapper;
+    protected readonly IRepository<TEntity> Repository;
+    protected readonly IMapper Mapper;
 
     public CrudController(IRepository<TEntity> repository, IMapper mapper)
     {
-        _repository = repository;
-        _mapper = mapper;
+        Repository = repository;
+        Mapper = mapper;
     }
 
     [HttpGet]
     public virtual async Task<ActionResult<List<TResDto>>> Get(CancellationToken cancellationToken)
     {
-        var list = await _repository.TableNoTracking
-            .ProjectTo<TDto>(_mapper.ConfigurationProvider).ToListAsync(cancellationToken);
+        var list = await Repository.TableNoTracking
+            .ProjectTo<TResDto>(Mapper.ConfigurationProvider).ToListAsync(cancellationToken);
         return Ok(list);
     }
 
     [HttpGet("{id}")]
     public virtual async Task<ApiResult<TResDto>> Get(TKey id, CancellationToken cancellationToken)
     {
-        var dto = await _repository.TableNoTracking.ProjectTo<TResDto>(_mapper.ConfigurationProvider)
+        var dto = await Repository.TableNoTracking.ProjectTo<TResDto>(Mapper.ConfigurationProvider)
             .SingleOrDefaultAsync(p => p.Id!.Equals(id), cancellationToken);
         if (dto == null)
             return NotFound();
@@ -46,24 +48,24 @@ public class CrudController<TDto, TResDto, TEntity, TKey> : BaseController
     [HttpPost]
     public virtual async Task<ApiResult<TResDto>> Create([FromForm]TDto dto, CancellationToken cancellationToken)
     {
-        var model = dto.ToEntity(_mapper);
+        var model = dto.ToEntity(Mapper);
 
-        await _repository.AddAsync(model, cancellationToken);
-        var resultDto = await _repository.TableNoTracking.ProjectTo<TResDto>(_mapper.ConfigurationProvider)
+        await Repository.AddAsync(model, cancellationToken);
+        var resultDto = await Repository.TableNoTracking.ProjectTo<TResDto>(Mapper.ConfigurationProvider)
             .SingleOrDefaultAsync(p => p.Id!.Equals(model.Id), cancellationToken);
         return resultDto!;
     }
 
-    [HttpPatch]
+    [HttpPatch("{id}")]
     public virtual async Task<ApiResult<TResDto>> Update(TKey id, TDto dto, CancellationToken cancellationToken)
     {
-        var model = await _repository.GetByIdAsync(cancellationToken, id);
+        var model = await Repository.GetByIdAsync(cancellationToken, id);
 
-        model = dto.ToEntity(model, _mapper);
+        model = dto.ToEntity(model, Mapper);
 
-        await _repository.UpdateAsync(model, cancellationToken);
-        var resultDto = await _repository.TableNoTracking
-            .ProjectTo<TResDto>(_mapper.ConfigurationProvider)
+        await Repository.UpdateAsync(model, cancellationToken);
+        var resultDto = await Repository.TableNoTracking
+            .ProjectTo<TResDto>(Mapper.ConfigurationProvider)
             .SingleOrDefaultAsync(p => p.Id!.Equals(model.Id), cancellationToken);
         return resultDto!;
     }
@@ -71,17 +73,17 @@ public class CrudController<TDto, TResDto, TEntity, TKey> : BaseController
     [HttpDelete("{id}")]
     public virtual async Task<ApiResult> Delete(TKey id, CancellationToken cancellationToken)
     {
-        var model = await _repository.GetByIdAsync(cancellationToken, id!);
-        await _repository.DeleteAsync(model, cancellationToken);
+        var model = await Repository.GetByIdAsync(cancellationToken, id!);
+        await Repository.DeleteAsync(model, cancellationToken);
 
         return Ok();
     }
 
 }
 public class CrudController<TDto, TResDto, TEntity> : CrudController<TDto, TResDto, TEntity, int>
-    where TEntity : class, IEntity<int>, new()
-    where TDto : BaseDto<TDto, TEntity, int>, new()
-    where TResDto : BaseDto<TResDto, TEntity, int>, new()
+    where TEntity : class, IEntity<int>
+    where TDto : BaseDto<TDto, TEntity, int>
+    where TResDto : BaseDto<TResDto, TEntity, int>
 {
     public CrudController(IRepository<TEntity> repository, IMapper mapper) : base(repository, mapper)
     {
@@ -89,8 +91,8 @@ public class CrudController<TDto, TResDto, TEntity> : CrudController<TDto, TResD
 }
 
 public class CrudController<TDto, TEntity> : CrudController<TDto, TDto, TEntity, int>
-    where TEntity : class, IEntity<int>, new()
-    where TDto : BaseDto<TDto, TEntity, int>, new()
+    where TEntity : class, IEntity<int>
+    where TDto : BaseDto<TDto, TEntity, int>
 {
     public CrudController(IRepository<TEntity> repository, IMapper mapper) : base(repository, mapper)
     {

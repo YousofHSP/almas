@@ -8,10 +8,10 @@ namespace Common
 {
     public class SiteSettings
     {
-        public string ElmahPath { get; set; }
-        public string Url { get; set; }
-        public JwtSettings JwtSettings { get; set; }
-        public IdentitySettings IdentitySettings { get; set; }
+        public string ElmahPath { get; set; } = null!;
+        public string Url { get; set; } = null!;
+        public JwtSettings JwtSettings { get; set; } = null!;
+        public IdentitySettings IdentitySettings { get; set; } = null!;
     }
 
     public class IdentitySettings
@@ -26,10 +26,10 @@ namespace Common
 
     public class JwtSettings
     {
-        public string SecretKey { get; set; }
-        public string EncryptKey { get; set; }
-        public string Issuer { get; set; }
-        public string Audience { get; set; }
+        public string SecretKey { get; set; } = null!;
+        public string EncryptKey { get; set; } = null!;
+        public string Issuer { get; set; } = null!;
+        public string Audience { get; set; } = null!;
         public int NotBeforeMinutes { get; set; }
         public int ExpirationMinutes { get; set; }
     }

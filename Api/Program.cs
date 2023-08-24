@@ -4,6 +4,7 @@ using Data.Repositories;
 using Data.Reprositories;
 using DTO.CustomMapping;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.Extensions.FileProviders;
 using NLog;
 using NLog.Web;
 using Service.Services;
@@ -67,6 +68,14 @@ try
     app.UseCors(options =>
     {
         options.WithOrigins("*").AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin();
+    });
+    
+    app.UseStaticFiles();
+    app.UseStaticFiles(new StaticFileOptions
+    {
+        FileProvider = new PhysicalFileProvider(
+            Path.Combine(Directory.GetCurrentDirectory(), "wwwroot")),
+        RequestPath = "/static"
     });
 
     app.Run();

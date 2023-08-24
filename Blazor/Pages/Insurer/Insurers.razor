@@ -1,0 +1,20 @@
+﻿@page "/Insurers"
+@inherits InsurersBase
+<section class="px-10 pt-20">
+    @if (Insurers is null)
+    {
+        <DisplaySpinner/>
+    }
+    else
+    {
+        <div class="text-center py-20 ">
+            <h2 class="text-2xl font-bold">بیمه ها</h2>
+        </div>
+        <div class="m-auto grid grid-cols-3 gap-3">
+            @foreach (var insurer in Insurers)
+            {
+                <InsurerItem Insurer="insurer"/>
+            }
+        </div>
+    }
+</section>

@@ -20,6 +20,7 @@ public class User : IdentityUser<int>, IEntity<int>
 
     public IEnumerable<Shop>? Shops { get; set; }
     public IEnumerable<Course>? Courses { get; set; }
+    public IEnumerable<Insurer>? Insurers { get; set; }
 }
 
 public class UserConfiguration : IEntityTypeConfiguration<User>

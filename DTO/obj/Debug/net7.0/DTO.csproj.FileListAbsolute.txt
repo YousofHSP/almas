@@ -15,3 +15,14 @@ G:\Projects\C#\Api\Almas\DTO\bin\Debug\net7.0\Entities.dll
 G:\Projects\C#\Api\Almas\DTO\bin\Debug\net7.0\Entities.pdb
 G:\Projects\C#\Api\Almas\DTO\bin\Debug\net7.0\Common.pdb
 G:\Projects\C#\Api\Almas\DTO\obj\Debug\net7.0\DTO.csproj.CopyComplete
+G:\Projects\C#\Api\Almas\DTO\bin\Debug\net7.0\Microsoft.AspNetCore.Http.Features.dll
+G:\Projects\C#\Api\Almas\DTO\bin\Debug\net7.0\Microsoft.Net.Http.Headers.dll
+G:\Projects\C#\Api\Almas\DTO\bin\Debug\net7.0\System.IO.Pipelines.dll
+G:\Projects\C#\Api\Almas\DTO\bin\Debug\net7.0\Microsoft.AspNetCore.Connections.Abstractions.dll
+G:\Projects\C#\Api\Almas\DTO\bin\Debug\net7.0\Microsoft.Extensions.Features.dll
+G:\Projects\C#\Api\Almas\DTO\bin\Debug\net7.0\Data.dll
+G:\Projects\C#\Api\Almas\DTO\bin\Debug\net7.0\Data.pdb
+G:\Projects\C#\Api\Almas\DTO\bin\Debug\net7.0\Microsoft.AspNetCore.Http.dll
+G:\Projects\C#\Api\Almas\DTO\bin\Debug\net7.0\Microsoft.AspNetCore.Http.Abstractions.dll
+G:\Projects\C#\Api\Almas\DTO\bin\Debug\net7.0\Microsoft.AspNetCore.WebUtilities.dll
+G:\Projects\C#\Api\Almas\DTO\bin\Debug\net7.0\Microsoft.Extensions.ObjectPool.dll

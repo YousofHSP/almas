@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ii7JzLc6wuxxlC7sMMyijFdkdAIoX2Ats6apPWet7OoSudEtLLsB3ClL2emgBjEqgGqnhqk9TVhKMRbN5IDRew==",
+  "dgSpecHash": "E6WIaunmrglJCQhUuMVaNboSSxXk+L3NMrjRblhu7hgeldfQ9WqyXYvUJk0WHZzyo/GYe8FBgbqbH8fNLJf1PA==",
   "success": true,
   "projectFilePath": "G:\\Projects\\C#\\Api\\Almas\\Blazor\\Blazor.csproj",
   "expectedPackageFiles": [
@@ -72,6 +72,7 @@
     "C:\\Users\\youso\\.nuget\\packages\\runtime.any.system.text.encoding\\4.3.0\\runtime.any.system.text.encoding.4.3.0.nupkg.sha512",
     "C:\\Users\\youso\\.nuget\\packages\\runtime.any.system.threading.tasks\\4.3.0\\runtime.any.system.threading.tasks.4.3.0.nupkg.sha512",
     "C:\\Users\\youso\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
+    "C:\\Users\\youso\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
     "C:\\Users\\youso\\.nuget\\packages\\system.configuration.configurationmanager\\5.0.0\\system.configuration.configurationmanager.5.0.0.nupkg.sha512",
     "C:\\Users\\youso\\.nuget\\packages\\system.diagnostics.diagnosticsource\\5.0.0\\system.diagnostics.diagnosticsource.5.0.0.nupkg.sha512",
     "C:\\Users\\youso\\.nuget\\packages\\system.drawing.common\\5.0.0\\system.drawing.common.5.0.0.nupkg.sha512",

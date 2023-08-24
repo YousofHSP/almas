@@ -20,16 +20,60 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[G:/Projects/C\#/Api/Almas/Blazor/Pages/Admin/Auth/Login.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQXV0aFxMb2dpbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Projects/C\#/Api/Almas/Blazor/Pages/Admin/Shop/Create.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cU2hvcFxDcmVhdGUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Projects/C\#/Api/Almas/Blazor/Pages/Admin/Shop/Edit.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cU2hvcFxFZGl0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Projects/C\#/Api/Almas/Blazor/Pages/Admin/Shop/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cU2hvcFxJbmRleC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Projects/C\#/Api/Almas/Blazor/Pages/Admin/Shop/ShopTrItem.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cU2hvcFxTaG9wVHJJdGVtLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [G:/Projects/C\#/Api/Almas/Blazor/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Projects/C\#/Api/Almas/Blazor/Pages/Shop.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hvcC5yYXpvcg==
+[G:/Projects/C\#/Api/Almas/Blazor/Pages/Insurer/Insurer.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5zdXJlclxJbnN1cmVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Projects/C\#/Api/Almas/Blazor/Pages/Shops.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hvcHMucmF6b3I=
+[G:/Projects/C\#/Api/Almas/Blazor/Pages/Insurer/Insurers.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5zdXJlclxJbnN1cmVycy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Projects/C\#/Api/Almas/Blazor/Pages/Shop/Shop.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hvcFxTaG9wLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Projects/C\#/Api/Almas/Blazor/Pages/Shop/Shops.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hvcFxTaG9wcy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Projects/C\#/Api/Almas/Blazor/Shared/AdminLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXEFkbWluTGF5b3V0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Projects/C\#/Api/Almas/Blazor/Shared/AdminMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXEFkbWluTWVudS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Projects/C\#/Api/Almas/Blazor/Shared/AuthLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXEF1dGhMYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Projects/C\#/Api/Almas/Blazor/Shared/Components/InsurerItem.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENvbXBvbmVudHNcSW5zdXJlckl0ZW0ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [G:/Projects/C\#/Api/Almas/Blazor/Shared/Components/ShopItem.razor]

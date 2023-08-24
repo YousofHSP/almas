@@ -73,14 +73,14 @@
         }
       }
     },
-    "G:\\Projects\\C#\\Api\\Almas\\DTO\\DTO.csproj": {
+    "G:\\Projects\\C#\\Api\\Almas\\Data\\Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\Projects\\C#\\Api\\Almas\\DTO\\DTO.csproj",
-        "projectName": "DTO",
-        "projectPath": "G:\\Projects\\C#\\Api\\Almas\\DTO\\DTO.csproj",
+        "projectUniqueName": "G:\\Projects\\C#\\Api\\Almas\\Data\\Data.csproj",
+        "projectName": "Data",
+        "projectPath": "G:\\Projects\\C#\\Api\\Almas\\Data\\Data.csproj",
         "packagesPath": "C:\\Users\\youso\\.nuget\\packages\\",
-        "outputPath": "G:\\Projects\\C#\\Api\\Almas\\DTO\\obj\\",
+        "outputPath": "G:\\Projects\\C#\\Api\\Almas\\Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\youso\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -113,6 +113,73 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.10, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "G:\\Projects\\C#\\Api\\Almas\\DTO\\DTO.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "G:\\Projects\\C#\\Api\\Almas\\DTO\\DTO.csproj",
+        "projectName": "DTO",
+        "projectPath": "G:\\Projects\\C#\\Api\\Almas\\DTO\\DTO.csproj",
+        "packagesPath": "C:\\Users\\youso\\.nuget\\packages\\",
+        "outputPath": "G:\\Projects\\C#\\Api\\Almas\\DTO\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\youso\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "G:\\Projects\\C#\\Api\\Almas\\Data\\Data.csproj": {
+                "projectPath": "G:\\Projects\\C#\\Api\\Almas\\Data\\Data.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
             "AutoMapper": {
               "target": "Package",
               "version": "[12.0.1, )"
@@ -120,6 +187,10 @@
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[12.0.1, )"
+            },
+            "System.ComponentModel.Annotations": {
+              "target": "Package",
+              "version": "[5.0.0, )"
             }
           },
           "imports": [

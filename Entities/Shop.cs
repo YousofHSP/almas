@@ -8,7 +8,6 @@ namespace Entities;
 public class Shop: BaseEntity
 {
     [Required] public required string Title { get; set; }
-    [Required] public required string Image { get; set; }
     [Required] public required string Description { get; set; }
     [Required] public int UserId { get; set; }
 

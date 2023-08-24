@@ -164,8 +164,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "G:\\Projects\\C#\\Api\\Almas\\Entities\\Entities.csproj": {
-                "projectPath": "G:\\Projects\\C#\\Api\\Almas\\Entities\\Entities.csproj"
+              "G:\\Projects\\C#\\Api\\Almas\\Data\\Data.csproj": {
+                "projectPath": "G:\\Projects\\C#\\Api\\Almas\\Data\\Data.csproj"
               }
             }
           }
@@ -187,6 +187,10 @@
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[12.0.1, )"
+            },
+            "System.ComponentModel.Annotations": {
+              "target": "Package",
+              "version": "[5.0.0, )"
             }
           },
           "imports": [

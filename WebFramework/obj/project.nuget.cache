@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "8zNZlb75GmQWh8MRH4/ZTUyPBZBjYfjEdrqikXEmO5I5njB6AsXPRbpWkR+go5q9qTadMqVG69VYGhjDjAbflg==",
+  "dgSpecHash": "6tKjDV6zbT0XvHwnb3YR/EzenitzWwn/HReP6iCQ0VbwpDRB8BtTriXb6d9jcbgK6eSmOnWrMyUocQtAlp/yUw==",
   "success": true,
   "projectFilePath": "G:\\Projects\\C#\\Api\\Almas\\WebFramework\\WebFramework.csproj",
   "expectedPackageFiles": [
@@ -96,6 +96,7 @@
     "C:\\Users\\youso\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
     "C:\\Users\\youso\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.5.0\\swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512",
     "C:\\Users\\youso\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
+    "C:\\Users\\youso\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
     "C:\\Users\\youso\\.nuget\\packages\\system.configuration.configurationmanager\\5.0.0\\system.configuration.configurationmanager.5.0.0.nupkg.sha512",
     "C:\\Users\\youso\\.nuget\\packages\\system.data.sqlclient\\4.8.2\\system.data.sqlclient.4.8.2.nupkg.sha512",
     "C:\\Users\\youso\\.nuget\\packages\\system.diagnostics.diagnosticsource\\5.0.1\\system.diagnostics.diagnosticsource.5.0.1.nupkg.sha512",

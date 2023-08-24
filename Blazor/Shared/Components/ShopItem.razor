@@ -1,15 +1,15 @@
-﻿@using DTO
-<div class="max-w-lg card card-side bg-base-100 shadow-xl">
-    <figure>
-        <img class="w-48 h-56" src="@Shop.Image" alt="Movie"/>
-    </figure>
-    <div class="card-body">
-        <h2 class="card-title">@Shop.Title</h2>
-        <p>@Shop.Description</p>
-        <div class="card-actions justify-end">
-            <a href="Shops/@Shop.Id" class="btn btn-sm btn-outline">بیشتر</a>
-        </div>
+﻿
+<div class="card w-96 bg-base-100 shadow-xl">
+  <figure class="h-60">
+    <img src="@Shop.Image" alt="Shoes" />
+  </figure>
+  <div class="card-body">
+    <h2 class="card-title">@Shop.Title</h2>
+    <p>@Shop.Description</p>
+    <div class="cardactions justify-end">
+      <a href="Shops/@Shop.Id" class="btn btn-sm btn-outline">بیشتر</a>
     </div>
+  </div>
 </div>
 
 @code {

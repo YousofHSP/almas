@@ -1,0 +1,77 @@
+﻿@using System.Net.Http.Headers
+@inject IAdminShopService Service
+@if (_isLoading)
+{
+    <td></td>
+    <td colspan="*">
+        در حال بارگزاری تصویر
+    </td>
+}
+else
+{
+    <th>
+        <label>
+            <input type="checkbox" class="checkbox"/>
+        </label>
+    </th>
+    <td>
+        <div class="flex items-center space-x-3 space-x-reverse">
+            <div class="avatar">
+                <div class="mask mask-squircle w-12 h-12">
+                    <img src="@Shop.Image" alt="Avatar Tailwind CSS Component"/>
+                </div>
+            </div>
+            <div>
+                <div class="font-bold">@Shop.Title</div>
+            </div>
+        </div>
+    </td>
+    <td>@Shop.Description</td>
+    <th>@Shop.UserFullName</th>
+    <th>
+        <a href="/Admin/Shops/@Shop.Id/Edit" class="btn btn-outline btn-sm">ویرایش</a>
+        <label class="btn btn-outline btn-sm" for="image">
+            آپلود تصویر
+        </label>
+        <EditForm class="hidden" Model="Shop">
+            <InputFile OnChange="@OnInputFileChange" id="image" class="hidden"/>
+        </EditForm>
+        <button onclick="@(async () => await Remove())" class="btn btn-outline btn-sm btn-error">حذف</button>
+    </th>
+}
+
+@code {
+
+    [Parameter]
+    public ShopResDto Shop { get; set; } = null!;
+
+    private bool _isLoading = false;
+
+    private async void OnInputFileChange(InputFileChangeEventArgs e)
+    {
+        _isLoading = true;
+        using var content = new MultipartFormDataContent();
+        foreach (var file in e.GetMultipleFiles(1))
+        {
+            var fileContent = new StreamContent(file.OpenReadStream(long.MaxValue));
+            fileContent.Headers.ContentType = new MediaTypeHeaderValue(file.ContentType);
+            content.Add(fileContent, "Image", file.Name);
+        }
+        var response = await Service.UploadImage(Shop.Id, content);
+        Console.WriteLine("hello");
+        _isLoading = false;
+        Console.WriteLine(_isLoading);
+        if (response is null) return;
+        Shop = response;
+    }
+
+    private async Task Remove()
+    {
+        var response = await Service.Delete(Shop.Id);
+        if (response)
+        {
+            Console.WriteLine("deleted");
+        }
+    }
+}
+

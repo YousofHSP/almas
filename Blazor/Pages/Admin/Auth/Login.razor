@@ -1,0 +1,43 @@
+﻿@page "/Login"
+@layout AuthLayout
+@inject NavigationManager NavigationManager
+
+
+<from>
+    <div class="hero min-h-screen bg-base-200">
+        <div class="hero-content flex-col lg:flex-row-reverse">
+            <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                <div class="card-body">
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">نام کاربری</span>
+                        </label>
+                        <input type="text" class="input input-bordered" @bind="LoginDto!.UserName"/>
+                    </div>
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">رمز</span>
+                        </label>
+                        <input type="text" class="input input-bordered" @bind="LoginDto!.Password"/>
+                    </div>
+                    <div class="form-control mt-6">
+                        <button @onclick="Submit" type="submit" class="btn btn-primary">ورود</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</from>
+
+
+@code {
+    private LoginDto? LoginDto { get; set; }
+    protected override void OnInitialized() => LoginDto ??= new LoginDto();
+
+    private void Submit()
+    {
+        NavigationManager.NavigateTo("/Admin/Shops");
+    }
+
+
+}

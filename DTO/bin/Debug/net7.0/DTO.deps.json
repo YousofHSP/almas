@@ -10,7 +10,10 @@
         "dependencies": {
           "AutoMapper": "12.0.1",
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
-          "Entities": "1.0.0"
+          "Data": "1.0.0",
+          "System.ComponentModel.Annotations": "5.0.0",
+          "Microsoft.AspNetCore.Http": "7.0.0.0",
+          "Microsoft.AspNetCore.Http.Features": "7.0.0.0"
         },
         "runtime": {
           "DTO.dll": {}
@@ -484,6 +487,7 @@
         }
       },
       "System.Buffers/4.5.1": {},
+      "System.ComponentModel.Annotations/5.0.0": {},
       "System.Configuration.ConfigurationManager/5.0.0": {
         "dependencies": {
           "System.Security.Cryptography.ProtectedData": "5.0.0",
@@ -706,6 +710,14 @@
           "Common.dll": {}
         }
       },
+      "Data/1.0.0": {
+        "dependencies": {
+          "Entities": "1.0.0"
+        },
+        "runtime": {
+          "Data.dll": {}
+        }
+      },
       "Entities/1.0.0": {
         "dependencies": {
           "Common": "1.0.0",
@@ -714,6 +726,78 @@
         },
         "runtime": {
           "Entities.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Http/7.0.0.0": {
+        "runtime": {
+          "Microsoft.AspNetCore.Http.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.1023.36439"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Http.Features/7.0.0.0": {
+        "runtime": {
+          "Microsoft.AspNetCore.Http.Features.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.1023.36439"
+          }
+        }
+      },
+      "System.IO.Pipelines/7.0.0.0": {
+        "runtime": {
+          "System.IO.Pipelines.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.22.51805"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Http.Abstractions/7.0.0.0": {
+        "runtime": {
+          "Microsoft.AspNetCore.Http.Abstractions.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.1023.36439"
+          }
+        }
+      },
+      "Microsoft.Extensions.Features/7.0.0.0": {
+        "runtime": {
+          "Microsoft.Extensions.Features.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.1023.36439"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.WebUtilities/7.0.0.0": {
+        "runtime": {
+          "Microsoft.AspNetCore.WebUtilities.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.1023.36439"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Connections.Abstractions/7.0.0.0": {
+        "runtime": {
+          "Microsoft.AspNetCore.Connections.Abstractions.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.1023.36439"
+          }
+        }
+      },
+      "Microsoft.Net.Http.Headers/7.0.0.0": {
+        "runtime": {
+          "Microsoft.Net.Http.Headers.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.1023.36439"
+          }
+        }
+      },
+      "Microsoft.Extensions.ObjectPool/7.0.0.0": {
+        "runtime": {
+          "Microsoft.Extensions.ObjectPool.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.1023.36439"
+          }
         }
       }
     }
@@ -1018,6 +1102,13 @@
       "path": "system.buffers/4.5.1",
       "hashPath": "system.buffers.4.5.1.nupkg.sha512"
     },
+    "System.ComponentModel.Annotations/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dMkqfy2el8A8/I76n2Hi1oBFEbG1SfxD2l5nhwXV3XjlnOmwxJlQbYpJH4W51odnU9sARCSAgv7S3CyAFMkpYg==",
+      "path": "system.componentmodel.annotations/5.0.0",
+      "hashPath": "system.componentmodel.annotations.5.0.0.nupkg.sha512"
+    },
     "System.Configuration.ConfigurationManager/5.0.0": {
       "type": "package",
       "serviceable": true,
@@ -1212,8 +1303,58 @@
       "serviceable": false,
       "sha512": ""
     },
+    "Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "Entities/1.0.0": {
       "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.AspNetCore.Http/7.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.AspNetCore.Http.Features/7.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "System.IO.Pipelines/7.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.AspNetCore.Http.Abstractions/7.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.Extensions.Features/7.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.AspNetCore.WebUtilities/7.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.AspNetCore.Connections.Abstractions/7.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.Net.Http.Headers/7.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.Extensions.ObjectPool/7.0.0.0": {
+      "type": "reference",
       "serviceable": false,
       "sha512": ""
     }

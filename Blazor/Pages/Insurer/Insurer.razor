@@ -1,0 +1,26 @@
+﻿@page "/Insurers/{Id:int}"
+@inherits InsurerBase
+<section class="pt-20 px-20">
+    @if (Insurer is null)
+    {
+        <DisplaySpinner/>
+    }
+    else
+    {
+        <article class="prose prose-neutral prose-img:rounded-xl max-w-none">
+            @if (!string.IsNullOrEmpty(Insurer.Image))
+            {
+                <img src="@Insurer.Image" alt="main">
+            }
+            <h1>@Insurer.Title</h1>
+            <p>
+                @Insurer.Description
+            </p>
+            <!-- ... -->
+        </article>
+    }
+</section>
+
+@code {
+    
+}

@@ -9,9 +9,11 @@ namespace Entities;
 public class Upload: BaseEntity
 {
     [Required] public required UploadType Type { get; set; }
-    [Required] public required string Source { get; set; }
     [Required] public required Parent Parent { get; set; }
     [Required] public required int ParentId { get; set; }
+    public string FileName { get; set; } = null!;
+    public string StoredFileName { get; set; } = null!;
+    [Required] public string ContentType { get; set; } = null!;
 }
 
 public enum UploadType
