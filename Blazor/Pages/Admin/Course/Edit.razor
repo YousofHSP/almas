@@ -4,8 +4,9 @@
 @layout AdminLayout
 @inject IAdminCourseService Service
 @inject NavigationManager NavigationManager
+@inject IAdminUserService UserService
 
-@if (_course is null)
+@if (_course is null || _users is null)
 {
     <DisplaySpinner/>
 }
@@ -18,24 +19,35 @@ else
             <div class="card-body">
                 <div class="form-control">
                     <label class="label">
-                        <span class="label-text">عنوان</span>
+                        <span class="label-text">@(ModelExtensions.ToDisplay<CourseDto>(c => c.Title))</span>
                     </label>
                     <InputText id="title" class="input input-bordered" @bind-Value="_course!.Title"></InputText>
                 </div>
                 <div class="form-control">
                     <label class="label">
-                        <span class="label-text">قیمت</span>
+                        <span class="label-text">@(ModelExtensions.ToDisplay<CourseDto>(c => c.Price))</span>
                     </label>
                     <InputNumber id="price" class="input input-bordered" @bind-Value="_course!.Price"></InputNumber>
                 </div>
                 <div class="form-control">
                     <label class="label">
-                        <span class="label-text">وضعیت</span>
+                        <span class="label-text">@(ModelExtensions.ToDisplay<CourseDto>(c => c.Status))</span>
                     </label>
                     <InputSelect id="status" class="input input-bordered" @bind-Value="_course!.Status">
                         <option value="@CourseStatus.OnPerforming">@CourseStatus.OnPerforming.ToDisplay()</option>
                         <option value="@CourseStatus.Completed">@CourseStatus.Completed.ToDisplay()</option>
                         <option value="@CourseStatus.Disable">@CourseStatus.Disable.ToDisplay()</option>
+                    </InputSelect>
+                </div>
+                <div class="form-control">
+                    <label class="label">
+                        <span class="label-text">@(ModelExtensions.ToDisplay<CourseDto>(c => c.UserId))</span>
+                    </label>
+                    <InputSelect id="userId" class="input input-bordered" @bind-Value="_course!.UserId">
+                        @foreach (var user in _users)
+                        {
+                            <option value="@user.Id">@user.FullName (@user.UserName)</option>
+                        }
                     </InputSelect>
                 </div>
                 <div class="form-control">
@@ -52,12 +64,14 @@ else
 
 @code {
     private CourseDto? _course;
+    private IEnumerable<UserResDto>? _users;
 
     [Parameter]
     public int Id { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
+        _users = await UserService.Get();
         var course = await Service.Get(Id);
         if (course is not null)
             _course = new CourseDto()

@@ -1,5 +1,4 @@
 ﻿@page "/Admin/Courses"
-@using Common.Utilities
 @layout AdminLayout
 @inject IAdminCourseService Service
 
@@ -18,11 +17,11 @@ else
             <!-- head -->
             <thead>
             <tr>
-                <th>عنوان</th>
-                <th>وضعیت</th>
-                <th>قیمت</th>
-                <th>توضیحات</th>
-                <th>مدرس</th>
+                <th>@(ModelExtensions.ToDisplay<CourseResDto>(c => c.Title))</th>
+                <th>@(ModelExtensions.ToDisplay<CourseResDto>(c => c.Status))</th>
+                <th>@(ModelExtensions.ToDisplay<CourseResDto>(c => c.Price))</th>
+                <th>@(ModelExtensions.ToDisplay<CourseResDto>(c => c.Description))</th>
+                <th>@(ModelExtensions.ToDisplay<CourseResDto>(c => c.UserFullName))</th>
                 <th></th>
             </tr>
             </thead>

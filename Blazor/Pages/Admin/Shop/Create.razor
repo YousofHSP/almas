@@ -1,23 +1,41 @@
 ﻿@page "/Admin/Shops/Create"
+@using Common.Utilities
 @layout AdminLayout
 @inject IAdminShopService Service
 @inject NavigationManager NavigationManager
+@inject IAdminUserService UserService
 
-<EditForm Model="@_shop" OnValidSubmit="@Submit">
-        <DataAnnotationsValidator />
-        <ValidationSummary class="text-error" />
+@if (_users is null)
+{
+    <DisplaySpinner/>
+}
+else
+{
+    <EditForm Model="@_shop" OnValidSubmit="@Submit">
+        <DataAnnotationsValidator/>
+        <ValidationSummary class="text-error"/>
         <div class="card w-1/2">
             <div class="card-body">
                 <div class="form-control">
                     <label class="label">
-                        <span class="label-text">عنوان</span>
+                        <span class="label-text">@(ModelExtensions.ToDisplay<ShopDto>(s => s.Title))</span>
                     </label>
                     <InputText id="title" class="input input-bordered" @bind-Value="_shop!.Title"></InputText>
-                    
                 </div>
                 <div class="form-control">
                     <label class="label">
-                        <span class="label-text">توضیحات</span>
+                        <span class="label-text">@(ModelExtensions.ToDisplay<ShopDto>(c => c.UserId))</span>
+                    </label>
+                    <InputSelect id="userId" class="input input-bordered" @bind-Value="_shop!.UserId">
+                        @foreach (var user in _users)
+                        {
+                            <option value="@user.Id">@user.FullName (@user.UserName)</option>
+                        }
+                    </InputSelect>
+                </div>
+                <div class="form-control">
+                    <label class="label">
+                        <span class="label-text">@(ModelExtensions.ToDisplay<ShopDto>(s => s.Description))</span>
                     </label>
                     <InputTextArea id="description" class="input input-bordered" @bind-Value="_shop!.Description"></InputTextArea>
                 </div>
@@ -25,14 +43,22 @@
             </div>
         </div>
     </EditForm>
+}
 
 @code {
-    ShopDto? _shop = new ShopDto();
+    readonly ShopDto? _shop = new ShopDto();
+    private IEnumerable<UserResDto>? _users;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _users = await UserService.Get();
+    }
+
     private async void Submit()
     {
         if (_shop is null) return;
-        var response = await Service.Update(_shop.Id,_shop);
-        if(response is not null) NavigationManager.NavigateTo("/Admin/Shops");
+        var response = await Service.Update(_shop.Id, _shop);
+        if (response is not null) NavigationManager.NavigateTo("/Admin/Shops");
     }
 
 }

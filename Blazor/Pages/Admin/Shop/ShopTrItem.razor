@@ -39,6 +39,9 @@ else
 
     [Parameter]
     public ShopResDto Shop { get; set; } = null!;
+    
+    [Parameter]
+    public EventCallback<int> OnDelete { get; set; }
 
     private bool _isLoading = false;
 
@@ -53,20 +56,17 @@ else
             content.Add(fileContent, "Image", file.Name);
         }
         var response = await Service.UploadImage(Shop.Id, content);
-        Console.WriteLine("hello");
         _isLoading = false;
-        Console.WriteLine(_isLoading);
         if (response is null) return;
         Shop = response;
     }
 
     private async Task Remove()
     {
-        var response = await Service.Delete(Shop.Id);
-        if (response)
-        {
-            Console.WriteLine("deleted");
-        }
+        await Service.Delete(Shop.Id);
+        await OnDelete.InvokeAsync(Shop.Id);
+
+
     }
 }
 

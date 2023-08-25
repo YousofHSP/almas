@@ -1,4 +1,5 @@
 ﻿@page "/Admin/Shops"
+@using Entities.Common
 @layout AdminLayout
 @inject IAdminShopService Service
 
@@ -18,9 +19,9 @@ else
             <!-- head -->
             <thead>
             <tr>
-                <th>عنوان</th>
-                <th>توضیحات</th>
-                <th>مدیر</th>
+                <th>@(ModelExtensions.ToDisplay<ShopDto>(s => s.Title))</th>
+                <th>@(ModelExtensions.ToDisplay<ShopDto>(s => s.Description))</th>
+                <th>@(ModelExtensions.ToDisplay<ShopDto>(s => s.UserId))</th>
                 <th></th>
             </tr>
             </thead>
@@ -28,7 +29,7 @@ else
             @foreach (var shop in Shops)
             {
                 <tr>
-                    <ShopTrItem Shop="shop"/>
+                    <ShopTrItem OnDelete="Delete" Shop="shop"/>
                 </tr>
             }
             </tbody>
@@ -44,6 +45,11 @@ else
     protected override async Task OnInitializedAsync()
     {
         Shops = await Service.Get();
+    }
+
+    private void Delete(int id)
+    {
+        Shops = Shops!.Where(s => !s.Id.Equals(id));
     }
 
 }

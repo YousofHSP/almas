@@ -47,14 +47,14 @@ public class AdminShopService: IAdminShopService
         }
     }
 
-    public async Task<bool> Delete(int id)
+    public async Task Delete(int id)
     {
         try
         {
             var response = await _httpClient.DeleteAsync($"admin/Shops/{id}");
-            var apiResult = await response.Content.ReadFromJsonAsync<ApiResult<bool>>();
+            var apiResult = await response.Content.ReadFromJsonAsync<ApiResult>();
             if (!response.IsSuccessStatusCode) throw new Exception(apiResult?.Message ?? "Unhandled Error");
-            return response.StatusCode == HttpStatusCode.NoContent ? default : apiResult!.Data;
+            if(response.StatusCode == HttpStatusCode.NoContent) throw new Exception(apiResult?.Message ?? "Unhandled Error");
         }
         catch (Exception e)
         {

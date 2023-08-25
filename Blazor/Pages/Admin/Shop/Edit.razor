@@ -1,9 +1,9 @@
 ﻿@page "/Admin/Shops/{Id:int}/Edit"
 @layout AdminLayout
-@using System.Net.Http.Headers
 @inject NavigationManager NavigationManager
+@inject IAdminUserService UserService
 
-@if (Model is null)
+@if (Model is null || _users is null)
 {
     <DisplaySpinner/>
 }
@@ -16,14 +16,25 @@ else
             <div class="card-body">
                 <div class="form-control">
                     <label class="label">
-                        <span class="label-text">عنوان</span>
+                        <span class="label-text">@(ModelExtensions.ToDisplay<ShopDto>(s => s.Title))</span>
                     </label>
                     <InputText id="title" class="input input-bordered" @bind-Value="_shop!.Title"></InputText>
                     
                 </div>
                 <div class="form-control">
                     <label class="label">
-                        <span class="label-text">توضیحات</span>
+                        <span class="label-text">@(ModelExtensions.ToDisplay<ShopDto>(c => c.UserId))</span>
+                    </label>
+                    <InputSelect id="userId" class="input input-bordered" @bind-Value="_shop!.UserId">
+                        @foreach (var user in _users)
+                        {
+                            <option value="@user.Id">@user.FullName (@user.UserName)</option>
+                        }
+                    </InputSelect>
+                </div>
+                <div class="form-control">
+                    <label class="label">
+                        <span class="label-text">@(ModelExtensions.ToDisplay<ShopDto>(s => s.Description))</span>
                     </label>
                     <InputTextArea id="description" class="input input-bordered" @bind-Value="_shop!.Description"></InputTextArea>
                 </div>
@@ -40,12 +51,14 @@ else
     public int Id { get; set; }
     
     private ShopResDto? Model { get; set; }
+    private IEnumerable<UserResDto>? _users;
 
     [Inject]
     private IAdminShopService Service { get; set; } = null!;
 
     protected override async Task OnInitializedAsync()
     {
+        _users = await UserService.Get();
         Model = await Service.Get(Id);
         if (Model is not null)
         {
