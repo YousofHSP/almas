@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using Common.Exceptions;
 using Data.Contracts;
 using DTO;
 using Entities.Common;
@@ -46,7 +47,7 @@ public class CrudController<TDto, TResDto, TEntity, TKey> : BaseController
     }
 
     [HttpPost]
-    public virtual async Task<ApiResult<TResDto>> Create([FromForm]TDto dto, CancellationToken cancellationToken)
+    public virtual async Task<ApiResult<TResDto>> Create(TDto dto, CancellationToken cancellationToken)
     {
         var model = dto.ToEntity(Mapper);
 
@@ -74,6 +75,7 @@ public class CrudController<TDto, TResDto, TEntity, TKey> : BaseController
     public virtual async Task<ApiResult> Delete(TKey id, CancellationToken cancellationToken)
     {
         var model = await Repository.GetByIdAsync(cancellationToken, id!);
+        if (model is null) throw new NotFoundException();
         await Repository.DeleteAsync(model, cancellationToken);
 
         return Ok();

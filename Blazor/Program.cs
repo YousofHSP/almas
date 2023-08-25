@@ -17,5 +17,6 @@ builder.Services.AddScoped<IInsurerService, InsurerService>();
 
 // admin services
 builder.Services.AddScoped<IAdminShopService, AdminShopService>();
+builder.Services.AddScoped<IAdminCourseService, AdminCourseService>();
 
 await builder.Build().RunAsync();

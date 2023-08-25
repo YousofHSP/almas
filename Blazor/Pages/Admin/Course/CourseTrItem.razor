@@ -1,0 +1,27 @@
+﻿@using Common.Utilities
+@inject IAdminCourseService Service
+@inject NavigationManager NavigationManager
+
+<td>@Course.Title</td>
+<td>@Course.Status.ToDisplay()</td>
+<td>@Course.Price</td>
+<td>@Course.Description</td>
+<td>@Course.UserFullName</td>
+<td>
+    <a href="/Admin/Courses/@Course.Id" class="btn btn-outline btn-sm">ویرایش</a>
+    <button @onclick="@(async () => await Delete())" class="btn btn-outline btn-error btn-sm">حذف</button>
+</td>
+@code {
+
+    [Parameter]
+    public CourseResDto Course { get; set; } = null!;
+    
+    [Parameter]
+    public EventCallback<int> OnDelete { get; set; }
+
+    private async Task Delete()
+    {
+        await Service.Delete(Course.Id);
+        await OnDelete.InvokeAsync(Course.Id);
+    }
+}

@@ -24,6 +24,22 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQXV0aFxMb2dpbi5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[G:/Projects/C\#/Api/Almas/Blazor/Pages/Admin/Course/CourseTrItem.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ291cnNlXENvdXJzZVRySXRlbS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Projects/C\#/Api/Almas/Blazor/Pages/Admin/Course/Create.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ291cnNlXENyZWF0ZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Projects/C\#/Api/Almas/Blazor/Pages/Admin/Course/Edit.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ291cnNlXEVkaXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Projects/C\#/Api/Almas/Blazor/Pages/Admin/Course/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ291cnNlXEluZGV4LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [G:/Projects/C\#/Api/Almas/Blazor/Pages/Admin/Shop/Create.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cU2hvcFxDcmVhdGUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 

@@ -1,0 +1,82 @@
+﻿@page "/Admin/Courses/{Id:int}"
+@using Entities
+@using Common.Utilities
+@layout AdminLayout
+@inject IAdminCourseService Service
+@inject NavigationManager NavigationManager
+
+@if (_course is null)
+{
+    <DisplaySpinner/>
+}
+else
+{
+    <EditForm Model="@_course" OnValidSubmit="@Submit">
+        <DataAnnotationsValidator/>
+        <ValidationSummary class="text-error"/>
+        <div class="card w-1/2">
+            <div class="card-body">
+                <div class="form-control">
+                    <label class="label">
+                        <span class="label-text">عنوان</span>
+                    </label>
+                    <InputText id="title" class="input input-bordered" @bind-Value="_course!.Title"></InputText>
+                </div>
+                <div class="form-control">
+                    <label class="label">
+                        <span class="label-text">قیمت</span>
+                    </label>
+                    <InputNumber id="price" class="input input-bordered" @bind-Value="_course!.Price"></InputNumber>
+                </div>
+                <div class="form-control">
+                    <label class="label">
+                        <span class="label-text">وضعیت</span>
+                    </label>
+                    <InputSelect id="status" class="input input-bordered" @bind-Value="_course!.Status">
+                        <option value="@CourseStatus.OnPerforming">@CourseStatus.OnPerforming.ToDisplay()</option>
+                        <option value="@CourseStatus.Completed">@CourseStatus.Completed.ToDisplay()</option>
+                        <option value="@CourseStatus.Disable">@CourseStatus.Disable.ToDisplay()</option>
+                    </InputSelect>
+                </div>
+                <div class="form-control">
+                    <label class="label">
+                        <span class="label-text">توضیحات</span>
+                    </label>
+                    <InputTextArea id="description" class="input input-bordered" @bind-Value="_course!.Description"></InputTextArea>
+                </div>
+                <button class="btn btn-outline" type="submit">ثبت</button>
+            </div>
+        </div>
+    </EditForm> 
+}
+
+@code {
+    private CourseDto? _course;
+
+    [Parameter]
+    public int Id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var course = await Service.Get(Id);
+        if (course is not null)
+            _course = new CourseDto()
+            {
+                Id = course.Id,
+                Title = course.Title,
+                Description = course.Description,
+                Price = course.Price,
+                Status = course.Status,
+                UserId = course.UserId
+            };
+    }
+
+    private async Task Submit()
+    {
+        if(_course is null) return;
+        var response = await Service.Update(_course.Id, _course);
+        if (response is null) return;
+        NavigationManager.NavigateTo("/Admin/Courses");
+    }
+
+}

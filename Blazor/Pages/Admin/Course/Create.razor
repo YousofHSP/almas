@@ -1,0 +1,57 @@
+﻿@page "/Admin/Courses/Create"
+@using Entities
+@using Common.Utilities
+@layout AdminLayout
+@inject IAdminCourseService Service
+@inject NavigationManager NavigationManager
+
+<EditForm Model="@_course" OnValidSubmit="@Submit">
+    <DataAnnotationsValidator/>
+    <ValidationSummary class="text-error"/>
+    <div class="card w-1/2">
+        <div class="card-body">
+            <div class="form-control">
+                <label class="label">
+                    <span class="label-text">عنوان</span>
+                </label>
+                <InputText id="title" class="input input-bordered" @bind-Value="_course!.Title"></InputText>
+            </div>
+            <div class="form-control">
+                <label class="label">
+                    <span class="label-text">قیمت</span>
+                </label>
+                <InputNumber id="price" class="input input-bordered" @bind-Value="_course!.Price"></InputNumber>
+            </div>
+            <div class="form-control">
+                <label class="label">
+                    <span class="label-text">وضعیت</span>
+                </label>
+                <InputSelect id="status" class="input input-bordered" @bind-Value="_course!.Status">
+                    @foreach (var value in Enum.GetValues<CourseStatus>())
+                    {
+                        <option value="@value">@value.ToDisplay()</option>
+                    }
+                </InputSelect>
+            </div>
+            <div class="form-control">
+                <label class="label">
+                    <span class="label-text">توضیحات</span>
+                </label>
+                <InputTextArea id="description" class="input input-bordered" @bind-Value="_course!.Description"></InputTextArea>
+            </div>
+            <button class="btn btn-outline" type="submit">ثبت</button>
+        </div>
+    </div>
+</EditForm>
+
+@code {
+    private readonly CourseDto _course = new();
+
+    private async void Submit()
+    {
+        _course.UserId = 1;
+        var response = await Service.Create(_course);
+        if (response is not null) NavigationManager.NavigateTo("/Admin/Courses");
+    }
+
+}

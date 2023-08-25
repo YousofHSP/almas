@@ -1,16 +1,16 @@
-﻿@page "/Admin/Shops"
+﻿@page "/Admin/Courses"
+@using Common.Utilities
 @layout AdminLayout
-@inject IAdminShopService Service
+@inject IAdminCourseService Service
 
-@if (Shops is null)
+@if (Courses is null)
 {
     <DisplaySpinner />
 }
 else
 {
-    
     <div class="overflow-x-auto px-12">
-        <a href="/Admin/Shops/Create" class="btn btn-outline mb-10">
+        <a href="/Admin/Courses/Create" class="btn btn-outline mb-10">
             <span><PlusIcon class="h-5 w-5"/></span>
             <span>ایجاد</span>
         </a>
@@ -19,16 +19,18 @@ else
             <thead>
             <tr>
                 <th>عنوان</th>
+                <th>وضعیت</th>
+                <th>قیمت</th>
                 <th>توضیحات</th>
-                <th>مدیر</th>
+                <th>مدرس</th>
                 <th></th>
             </tr>
             </thead>
             <tbody>
-            @foreach (var shop in Shops)
+            @foreach (var course in Courses)
             {
                 <tr>
-                    <ShopTrItem Shop="shop"/>
+                    <CourseTrItem OnDelete="DeleteHandler" Course="course"/>
                 </tr>
             }
             </tbody>
@@ -37,13 +39,17 @@ else
     </div>
 }
 
-@code{
-
-    private IEnumerable<ShopResDto>? Shops { get; set; }
+@code {
+    private IEnumerable<CourseResDto>? Courses { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-        Shops = await Service.Get();
+        Courses = await Service.Get();
+    }
+
+    void DeleteHandler(int id)
+    {
+        Courses = Courses!.Where(c => !c.Id.Equals(id));
     }
 
 }

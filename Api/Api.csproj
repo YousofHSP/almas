@@ -26,7 +26,6 @@
 
 
     <ItemGroup>
-      <Folder Include="Controllers\admin\" />
       <Folder Include="uploads\" />
       <Folder Include="wwwroot\" />
       <Folder Include="wwwroot\uploads\" />

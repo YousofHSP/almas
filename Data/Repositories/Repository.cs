@@ -25,7 +25,7 @@ namespace Data.Reprositories
         }
 
         #region Async Method
-        public virtual async Task<TEntity> GetByIdAsync(CancellationToken cancellationToken, params object[] ids)
+        public virtual async Task<TEntity?> GetByIdAsync(CancellationToken cancellationToken, params object[] ids)
         {
             return await Entities.FindAsync(ids, cancellationToken);
         }
