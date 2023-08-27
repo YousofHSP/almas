@@ -1,0 +1,78 @@
+﻿@page "/Admin/Insurers/{Id:int}"
+@layout AdminLayout
+@inject IAdminInsurerService Service
+@inject NavigationManager NavigationManager
+@inject IAdminUserService UserService
+
+@if (_users is null || _isLoading)
+{
+    <DisplaySpinner/>
+}
+else
+{
+    <EditForm Model="@_insurer" OnValidSubmit="@Submit">
+        <DataAnnotationsValidator/>
+        <ValidationSummary class="text-error"/>
+        <div class="card w-1/2">
+            <div class="card-body">
+                <div class="form-control">
+                    <label class="label">
+                        <span class="label-text">@(ModelExtensions.ToDisplay<InsurerDto>(c => c.Title))</span>
+                    </label>
+                    <InputText id="title" class="input input-bordered" @bind-Value="_insurer!.Title"></InputText>
+                </div>
+                <div class="form-control">
+                    <label class="label">
+                        <span class="label-text">@(ModelExtensions.ToDisplay<InsurerDto>(c => c.UserId))</span>
+                    </label>
+                    <InputSelect @bind-Value="_insurer!.UserId" class="input select input-bordered">
+                        @foreach (var user in _users)
+                        {
+                            <option value="@user.Id">@user.FullName (@user.UserName)</option>
+                        }
+                    </InputSelect>
+                </div>
+                <div class="form-control">
+                    <label class="label">
+                        <span class="label-text">@(ModelExtensions.ToDisplay<InsurerDto>(c => c.Description))</span>
+                    </label>
+                    <InputTextArea id="description" class="input input-bordered" @bind-Value="_insurer!.Description"></InputTextArea>
+                </div>
+                <button class="btn btn-outline" type="submit">ثبت</button>
+            </div>
+        </div>
+    </EditForm>
+}
+
+
+@code {
+    private InsurerDto _insurer = new();
+    private List<UserResDto>? _users;
+    private bool _isLoading = false;
+
+    [Parameter]
+    public int Id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        _users = await UserService.Get();
+        var insurer = await Service.Get(Id);
+        if (insurer is not null)
+            _insurer = new InsurerDto()
+            {
+                Description = insurer.Description,
+                Id = insurer.Id,
+                Title = insurer.Title,
+                UserId = insurer.UserId
+            };
+    }
+
+    private async void Submit()
+    {
+        _isLoading = true;
+        var response = await Service.Update(Id, _insurer);
+        _isLoading = false;
+        if (response is not null) NavigationManager.NavigateTo($"/Admin/Insurers");
+    }
+
+}

@@ -40,6 +40,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ291cnNlXEluZGV4LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[G:/Projects/C\#/Api/Almas/Blazor/Pages/Admin/Insurer/Create.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cSW5zdXJlclxDcmVhdGUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Projects/C\#/Api/Almas/Blazor/Pages/Admin/Insurer/Edit.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cSW5zdXJlclxFZGl0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Projects/C\#/Api/Almas/Blazor/Pages/Admin/Insurer/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cSW5zdXJlclxJbmRleC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [G:/Projects/C\#/Api/Almas/Blazor/Pages/Admin/Lesson/Create.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTGVzc29uXENyZWF0ZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 

@@ -13,12 +13,12 @@ public class AdminUserService: IAdminUserService
     {
         _httpClient = httpClient;
     }
-    public async Task<IEnumerable<UserResDto>?> Get()
+    public async Task<List<UserResDto>?> Get()
     {
         try
         {
             var response = await _httpClient.GetAsync("Admin/Users");
-            var apiResult = await response.Content.ReadFromJsonAsync<ApiResult<IEnumerable<UserResDto>>>();
+            var apiResult = await response.Content.ReadFromJsonAsync<ApiResult<List<UserResDto>>>();
             if (!response.IsSuccessStatusCode) throw new Exception(apiResult?.Message ?? "خطایی رخ داده است");
             return response.StatusCode == HttpStatusCode.NoContent ? default : apiResult!.Data;
         }

@@ -11,6 +11,7 @@ using WebFramework.Filters;
 
 namespace WebFramework.Api;
 
+[ApiController]
 [ApiVersion("1")]
 [Route("api/v{version:ApiVersion}/admin/[controller]")]
 

@@ -28,4 +28,5 @@ public enum Parent
     Shop,
     Lesson,
     Course,
+    Insurer
 }
