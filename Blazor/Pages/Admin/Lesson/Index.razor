@@ -1,0 +1,99 @@
+﻿@page "/Admin/Courses/{Id:int}/Lessons"
+@using System.Net.Http.Headers
+@layout AdminLayout
+@inject IAdminLessonService Service
+
+
+@if (_course is null || IsLoading)
+{
+    <DisplaySpinner/>
+}
+else
+{
+    <h3 class="mb-10 text-xl font-bold">دوره : @_course.Title</h3>
+
+
+    <div class="overflow-x-auto px-12">
+        <a href="/Admin/Courses/@_course.Id/Lessons/Create" class="btn btn-outline mb-10">
+            <span>
+                <PlusIcon class="h-5 w-5"/>
+            </span>
+            <span>ایجاد</span>
+        </a>
+        <table class="table">
+            <!-- head -->
+            <thead>
+            <tr>
+                <th>@(ModelExtensions.ToDisplay<LessonResDto>(c => c.Title))</th>
+                <th>@(ModelExtensions.ToDisplay<LessonResDto>(c => c.LessonType))</th>
+                <th>@(ModelExtensions.ToDisplay<LessonResDto>(c => c.Description))</th>
+                <th>@(ModelExtensions.ToDisplay<LessonResDto>(c => c.File))</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var lesson in _course.Lessons ?? new List<LessonResDto>())
+            {
+                <tr>
+                    <td>@lesson.Title</td>
+                    <td>@lesson.LessonType.ToDisplay()</td>
+                    <td>@lesson.Description</td>
+                    <td>
+                        @if (string.IsNullOrEmpty(lesson.File))
+                        {
+                            <div class="badge badge-error gap-2">
+                                فایلی آپلود نشده است
+                            </div>
+                        }
+                        else
+                        {
+                            <a href="@lesson.File" download class="btn btn-sm btn-outline">دانلود فایل</a>
+                        }
+                    </td>
+                    <td>
+                        <a href="/Admin/Courses/@_course.Id/Lessons/@lesson.Id" class="btn btn-outline btn-sm">ویرایش</a>
+                        <label class="btn btn-outline btn-sm" for="@("file_" + lesson.Id)">
+                            آپلود تصویر
+                        </label>
+                        <EditForm class="hidden" Model="lesson">
+                            <InputFile OnChange="@(args => OnInputFileChange(args, lesson.Id))" id="@("file_" + lesson.Id)" class="hidden"/>
+                        </EditForm>
+                    </td>
+                </tr>
+            }
+            </tbody>
+
+        </table>
+    </div>
+}
+
+@code {
+
+    [Parameter]
+    public int Id { get; set; }
+
+    private CourseResDto? _course;
+    public bool IsLoading = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _course = await Service.GetByCourseId(Id);
+    }
+
+    private async void OnInputFileChange(InputFileChangeEventArgs e, int id)
+    {
+        IsLoading = true;
+        using var content = new MultipartFormDataContent();
+        foreach (var file in e.GetMultipleFiles(1))
+        {
+            var fileContent = new StreamContent(file.OpenReadStream(long.MaxValue));
+            fileContent.Headers.ContentType = new MediaTypeHeaderValue(file.ContentType);
+            content.Add(fileContent, "File", file.Name);
+        }
+    var response = await Service.UploadFile(id, content);
+    // _isLoading = false;
+    // if (response is null) return;
+    // Shop = response;
+    }
+
+}

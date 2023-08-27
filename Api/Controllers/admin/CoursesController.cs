@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using Common;
 using Common.Exceptions;
 using Data.Contracts;
@@ -12,6 +13,9 @@ using WebFramework.Api;
 
 namespace Api.Controllers.admin;
 
+
+[ApiController]
+[ApiVersion("1")]
 public class CoursesController: CrudController<CourseDto, CourseResDto, Course>
 {
     private readonly SiteSettings _settings;
@@ -55,5 +59,28 @@ public class CoursesController: CrudController<CourseDto, CourseResDto, Course>
         resDto.Image = Path.Combine(_settings.Url, "uploads", upload.StoredFileName);
         
         return Ok(resDto);
+    }
+
+    [HttpGet("{id:int}/Lessons")]
+    public async Task<ApiResult<CourseResDto>> GetCourseLessons(int id, CancellationToken cancellationToken)
+    {
+        var course = await Repository.TableNoTracking
+            .Include(c => c.Lessons)
+            .ProjectTo<CourseResDto>(Mapper.ConfigurationProvider)
+            .SingleOrDefaultAsync(c => c.Id.Equals(id), cancellationToken);
+        if (course is null) throw new NotFoundException("دوره پیدا نشد.");
+
+        var files = await _uploadRepository.TableNoTracking
+            .Where(f => f.Parent.Equals(Parent.Lesson))
+            .ToListAsync(cancellationToken);
+        
+        foreach (var lesson in course.Lessons ?? new List<LessonResDto>())
+        {
+            lesson.Description = lesson.Description?.Length > 100 ? lesson.Description[..100] : lesson.Description;
+            var file = files.FirstOrDefault(f => f.ParentId.Equals(lesson.Id));
+            if(file is null) continue;
+            lesson.File = file.GeneratePath(_settings.Url);
+        }
+        return Ok(course);
     }
 }

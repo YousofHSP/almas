@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using AutoMapper;
 using Entities;
 
 namespace DTO;
@@ -21,6 +22,6 @@ public class CourseResDto : BaseDto<CourseResDto, Course>
     [Display(Name = "مدرس")] public int UserId { get; set; }
     [Display(Name = "نام مدرس")] public string? UserFullName { get; set; }
     [Display(Name = "تصویر")] public string? Image { get; set; }
-    
+    [Display(Name = "درس ها")] public List<LessonResDto>? Lessons { get; set; }
 }
 

@@ -1,0 +1,58 @@
+﻿@page "/Admin/Courses/{CourseId:int}/Lessons/Create"
+@using Entities
+@layout AdminLayout
+@inject IAdminLessonService Service
+@inject NavigationManager NavigationManager
+
+
+<EditForm Model="@_lesson" OnValidSubmit="@Submit">
+    <DataAnnotationsValidator/>
+    <ValidationSummary class="text-error"/>
+    <div class="card w-1/2">
+        <div class="card-body">
+            <div class="form-control">
+                <label class="label">
+                    <span class="label-text">@(ModelExtensions.ToDisplay<LessonDto>(c => c.Title))</span>
+                </label>
+                <InputText id="title" class="input input-bordered" @bind-Value="_lesson!.Title"></InputText>
+            </div>
+            <div class="form-control">
+                <label class="label">
+                    <span class="label-text">@(ModelExtensions.ToDisplay<LessonDto>(c => c.LessonType))</span>
+                </label>
+                <InputSelect id="status" class="input input-bordered" @bind-Value="_lesson!.LessonType">
+                    @foreach (var value in Enum.GetValues<LessonType>())
+                    {
+                        <option value="@value">@value.ToDisplay()</option>
+                    }
+                </InputSelect>
+            </div>
+            <div class="form-control">
+                <label class="label">
+                    <span class="label-text">توضیحات</span>
+                </label>
+                <InputTextArea id="description" class="input input-bordered" @bind-Value="_lesson!.Description"></InputTextArea>
+            </div>
+            <button class="btn btn-outline" type="submit">ثبت</button>
+        </div>
+    </div>
+</EditForm>
+
+
+@code {
+    private LessonDto _lesson = new();
+    [Parameter]
+    public int CourseId { get; set; }
+
+    protected override void OnInitialized()
+    {
+        _lesson = new LessonDto() { CourseId = CourseId };
+    }
+
+    private async void Submit()
+    {
+        var response = await Service.Create(_lesson);
+        if (response is not null) NavigationManager.NavigateTo($"/Admin/Courses/{CourseId}/Lessons");
+    }
+
+}

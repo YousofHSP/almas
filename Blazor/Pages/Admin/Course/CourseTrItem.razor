@@ -9,6 +9,7 @@
 <td>@Course.UserFullName</td>
 <td>
     <a href="/Admin/Courses/@Course.Id" class="btn btn-outline btn-sm">ویرایش</a>
+    <a href="/Admin/Courses/@Course.Id/Lessons" class="btn btn-outline btn-sm">دروس</a>
     <button @onclick="@(async () => await Delete())" class="btn btn-outline btn-error btn-sm">حذف</button>
 </td>
 @code {

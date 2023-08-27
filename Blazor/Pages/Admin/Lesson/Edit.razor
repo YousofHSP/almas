@@ -1,0 +1,75 @@
+﻿@page "/Admin/Courses/{CourseId:int}/Lessons/{Id:int}"
+@using Entities
+@layout AdminLayout
+@inject IAdminLessonService Service
+@inject NavigationManager NavigationManager
+
+@if (Lesson is null)
+{
+    <DisplaySpinner/>
+}
+else
+{
+    
+    <EditForm Model="@Lesson" OnValidSubmit="@Submit">
+        <DataAnnotationsValidator/>
+        <ValidationSummary class="text-error"/>
+        <div class="card w-1/2">
+            <div class="card-body">
+                <div class="form-control">
+                    <label class="label">
+                        <span class="label-text">@(ModelExtensions.ToDisplay<LessonDto>(c => c.Title))</span>
+                    </label>
+                    <InputText id="title" class="input input-bordered" @bind-Value="Lesson!.Title"></InputText>
+                </div>
+                <div class="form-control">
+                    <label class="label">
+                        <span class="label-text">@(ModelExtensions.ToDisplay<LessonDto>(c => c.LessonType))</span>
+                    </label>
+                    <InputSelect id="status" class="input input-bordered" @bind-Value="Lesson!.LessonType">
+                        @foreach (var value in Enum.GetValues<LessonType>())
+                        {
+                            <option value="@value">@value.ToDisplay()</option>
+                        }
+                    </InputSelect>
+                </div>
+                <div class="form-control">
+                    <label class="label">
+                        <span class="label-text">توضیحات</span>
+                    </label>
+                    <InputTextArea id="description" class="input input-bordered" @bind-Value="Lesson!.Description"></InputTextArea>
+                </div>
+                <button class="btn btn-outline" type="submit">ثبت</button>
+            </div>
+        </div>
+    </EditForm>
+}
+
+
+@code {
+    private LessonDto? Lesson { get; set; }
+    [Parameter]
+    public int CourseId { get; set; }
+    [Parameter] public int Id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var lesson = await Service.Get(Id);
+        if (lesson is not null)
+            Lesson = new LessonDto()
+            {
+                Id = lesson.Id,
+                CourseId = lesson.CourseId,
+                Description = lesson.Description,
+                LessonType = lesson.LessonType,
+                Title = lesson.Title
+            };
+    }
+
+    private async void Submit()
+    {
+        var response = await Service.Update(Lesson!.Id, Lesson);
+        if (response is not null) NavigationManager.NavigateTo($"/Admin/Courses/{CourseId}/Lessons");
+    }
+
+}

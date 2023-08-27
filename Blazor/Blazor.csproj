@@ -16,7 +16,6 @@
       <ProjectReference Include="..\DTO\DTO.csproj" />
     </ItemGroup>
     <ItemGroup>
-      <Folder Include="Pages\Admin\Lesson\" />
       <Folder Include="wwwroot\fonts\" />
     </ItemGroup>
 
