@@ -31,30 +31,7 @@ else
             @foreach (var package in Packages)
             {
                 <tr>
-                    <td>
-                        <div class="flex items-center space-x-3 space-x-reverse">
-                            <div class="avatar">
-                                <div class="mask mask-squircle w-12 h-12">
-                                    <img src="@package.Image" alt="Avatar Tailwind CSS Component"/>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="font-bold">@package.Title</div>
-                            </div>
-                        </div>
-                    </td>
-                    <td>@package.Price</td>
-                    <td>@package.Description</td>
-                    <td>
-                        <a href="/Admin/Insurers/@package.Id/Edit" class="btn btn-sm btn-outline">ویرایش</a>
-                        <label class="btn btn-outline btn-sm" for="@("image_" + package.Id)">
-                            آپلود تصویر
-                        </label>
-                        <EditForm class="hidden" Model="package">
-                            <InputFile OnChange="@((args) => OnInputFileChange(args, package.Id))" id="@("image_" + package.Id)" class="hidden"/>
-                        </EditForm>
-                        <button onclick="@(async () => await Delete(package.Id))" class="btn btn-outline btn-sm btn-error">حذف</button>
-                    </td>
+                    <PackageItem OnDelete="@(async (args) => await Delete(args))" Package="@package"/>
                 </tr>
             }
             </tbody>
@@ -67,43 +44,17 @@ else
     [Parameter]
     public bool IsLoading { get; set; } = false;
     
-    [Parameter]
-    public List<PackageResDto>? Packages { get; set; }
+    private List<PackageResDto>? Packages { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
         Packages = await Service.Get();
     }
     
-    private async Task OnInputFileChange(InputFileChangeEventArgs e, int id)
+    private async Task Delete(PackageResDto package)
     {
-        IsLoading = true;
-        using var content = new MultipartFormDataContent();
-        foreach (var file in e.GetMultipleFiles(1))
-        {
-            var fileContent = new StreamContent(file.OpenReadStream(long.MaxValue));
-            fileContent.Headers.ContentType = new MediaTypeHeaderValue(file.ContentType);
-            content.Add(fileContent, "Image", file.Name);
-        }
-        var response = await Service.UploadImage(id, content);
-        IsLoading = false;
-        if (response is null) return;
-        Packages?.ForEach(package =>
-        {
-            if (package.Id.Equals(response.Id))
-                package.Image = response.Image;
-        });
-        
-    }
-    
-    private async Task Delete(int id)
-    {
-        IsLoading = true;
-        await Service.Delete(id);
-        var packageIndex = Packages!.FindIndex(p => p.Id.Equals(id));
         await Swal.FireAsync("موفیت", "آیتم با موفقیت حذف شد", "success");
-        if(packageIndex >= 0)
-            Packages.RemoveAt(packageIndex);
+        Packages!.Remove(package);
     }
 
 }
