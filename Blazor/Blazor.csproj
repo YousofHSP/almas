@@ -9,9 +9,9 @@
 
     <ItemGroup>
         <PackageReference Include="Blazor.Heroicons" Version="1.2.3" />
-        <PackageReference Include="CurrieTechnologies.Razor.SweetAlert2" Version="5.5.0" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="7.0.10" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="7.0.7" PrivateAssets="all"/>
+        <PackageReference Include="CurrieTechnologies.Razor.SweetAlert2" Version="5.5.0" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\DTO\DTO.csproj" />

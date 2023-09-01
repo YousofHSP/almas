@@ -2,6 +2,7 @@
 @layout AdminLayout
 @inject IAdminPackageService Service
 @inject NavigationManager NavigationManager
+@inject SweetAlertService Swal
 
 @if (IsLoading)
 {
@@ -51,7 +52,9 @@ else
         IsLoading = true;
         var response = await Service.Create(_package);
         IsLoading = false;
-        if(response is not null) NavigationManager.NavigateTo("/Admin/Packages");
+        if (response is null) return;
+        await Swal.FireAsync("موقیت", "آیتم با موفیت ثبت شد", "success");
+        NavigationManager.NavigateTo("/Admin/Packages");
     }
 
 }

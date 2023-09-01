@@ -2,6 +2,7 @@
 @using System.Net.Http.Headers
 @layout AdminLayout
 @inject IAdminInsurerService Service
+@inject SweetAlertService Swal
 
 @if (Insurers is null || IsLoading)
 {
@@ -97,6 +98,7 @@ else
         IsLoading = true;
         await Service.Delete(id);
         IsLoading = false;
+        await Swal.FireAsync("موفیت", "آیتم با موفقیت حذف شد", "success");
         Insurers = Insurers!.Where(i => !i.Id.Equals(id)).ToList();
     }
 

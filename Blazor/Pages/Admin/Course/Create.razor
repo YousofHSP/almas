@@ -5,6 +5,7 @@
 @inject IAdminCourseService Service
 @inject NavigationManager NavigationManager
 @inject IAdminUserService UserService
+@inject SweetAlertService Swal
 
 @if (_users is null)
 {
@@ -75,7 +76,9 @@ else
     private async void Submit()
     {
         var response = await Service.Create(_course);
-        if (response is not null) NavigationManager.NavigateTo("/Admin/Courses");
+        if (response is null) return;
+        await Swal.FireAsync("موقیت", "آیتم با موفیت ثبت شد", "success");
+        NavigationManager.NavigateTo("/Admin/Courses");
     }
 
 }

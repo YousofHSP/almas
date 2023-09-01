@@ -2,6 +2,7 @@
 @layout AdminLayout
 @inject NavigationManager NavigationManager
 @inject IAdminUserService UserService
+@inject SweetAlertService Swal
 
 @if (Model is null || _users is null)
 {
@@ -76,7 +77,9 @@ else
         Model = null;
         if (_shop is null) return;
         var response = await Service.Update(_shop.Id,_shop);
-        if(response is not null) NavigationManager.NavigateTo("/Admin/Shops");
+        if (response is null) return;
+        await Swal.FireAsync("موقیت", "آیتم با موفیت ثبت شد", "success");
+        NavigationManager.NavigateTo("/Admin/Shops");
     }
 
     

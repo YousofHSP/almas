@@ -3,6 +3,7 @@
 @inject IAdminInsurerService Service
 @inject NavigationManager NavigationManager
 @inject IAdminUserService UserService
+@inject SweetAlertService Swal
 
 @if (_users is null || _isLoading)
 {
@@ -60,7 +61,9 @@ else
         _isLoading = true;
         var response = await Service.Create(_insurer);
         _isLoading = false;
-        if (response is not null) NavigationManager.NavigateTo($"/Admin/Insurers");
+        if (response is null) return;
+        await Swal.FireAsync("موقیت", "آیتم با موفیت ثبت شد", "success");
+        NavigationManager.NavigateTo($"/Admin/Insurers");
     }
 
 }

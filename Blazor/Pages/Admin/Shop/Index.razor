@@ -2,6 +2,7 @@
 @using Entities.Common
 @layout AdminLayout
 @inject IAdminShopService Service
+@inject SweetAlertService Swal
 
 @if (Shops is null)
 {
@@ -9,7 +10,6 @@
 }
 else
 {
-    
     <div class="overflow-x-auto px-12">
         <a href="/Admin/Shops/Create" class="btn btn-outline mb-10">
             <span><PlusIcon class="h-5 w-5"/></span>
@@ -29,7 +29,7 @@ else
             @foreach (var shop in Shops)
             {
                 <tr>
-                    <ShopTrItem OnDelete="Delete" Shop="shop"/>
+                    <ShopTrItem OnDelete="@(async (args) => await Delete(args))" Shop="shop"/>
                 </tr>
             }
             </tbody>
@@ -47,8 +47,9 @@ else
         Shops = await Service.Get();
     }
 
-    private void Delete(int id)
+    private async Task Delete(int id)
     {
+        await Swal.FireAsync("موفیت", "آیتم با موفقیت حذف شد", "success");
         Shops = Shops!.Where(s => !s.Id.Equals(id));
     }
 

@@ -1,6 +1,7 @@
 ﻿using System.Net;
 using System.Net.Http.Json;
 using Blazor.Services.Admin.Contracts;
+using CurrieTechnologies.Razor.SweetAlert2;
 using DTO;
 
 namespace Blazor.Services.Admin;
@@ -8,10 +9,12 @@ namespace Blazor.Services.Admin;
 public class AdminLessonService: IAdminLessonService
 {
     private readonly HttpClient _httpClient;
+    private readonly SweetAlertService _swal;
 
-    public AdminLessonService(HttpClient httpClient)
+    public AdminLessonService(HttpClient httpClient, SweetAlertService swal)
     {
         _httpClient = httpClient;
+        _swal = swal;
     }
     public async Task<List<LessonResDto>?> Get()
     {
@@ -24,7 +27,7 @@ public class AdminLessonService: IAdminLessonService
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
+            await _swal.FireAsync("خطا", e.Message, "error");
             throw;
         }
     }
@@ -40,7 +43,7 @@ public class AdminLessonService: IAdminLessonService
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
+            await _swal.FireAsync("خطا", e.Message, "error");
             throw;
         }
     }
@@ -56,7 +59,7 @@ public class AdminLessonService: IAdminLessonService
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
+            await _swal.FireAsync("خطا", e.Message, "error");
             throw;
         }
     }
@@ -72,7 +75,7 @@ public class AdminLessonService: IAdminLessonService
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
+            await _swal.FireAsync("خطا", e.Message, "error");
             throw;
         }
     }
@@ -88,7 +91,7 @@ public class AdminLessonService: IAdminLessonService
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
+            await _swal.FireAsync("خطا", e.Message, "error");
             throw;
         }
     }
@@ -104,7 +107,7 @@ public class AdminLessonService: IAdminLessonService
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
+            await _swal.FireAsync("خطا", e.Message, "error");
             throw;
         }
     }

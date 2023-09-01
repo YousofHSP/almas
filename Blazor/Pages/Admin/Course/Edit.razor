@@ -5,6 +5,7 @@
 @inject IAdminCourseService Service
 @inject NavigationManager NavigationManager
 @inject IAdminUserService UserService
+@inject SweetAlertService Swal
 
 @if (_course is null || _users is null)
 {
@@ -90,6 +91,7 @@ else
         if(_course is null) return;
         var response = await Service.Update(_course.Id, _course);
         if (response is null) return;
+        await Swal.FireAsync("موقیت", "آیتم با موفیت ثبت شد", "success");
         NavigationManager.NavigateTo("/Admin/Courses");
     }
 

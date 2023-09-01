@@ -1,6 +1,7 @@
 ﻿@page "/Admin/Courses"
 @layout AdminLayout
 @inject IAdminCourseService Service
+@inject SweetAlertService Swal
 
 @if (Courses is null)
 {
@@ -29,7 +30,7 @@ else
             @foreach (var course in Courses)
             {
                 <tr>
-                    <CourseTrItem OnDelete="DeleteHandler" Course="course"/>
+                    <CourseTrItem OnDelete="@(async(args) => await DeleteHandler(args))" Course="course"/>
                 </tr>
             }
             </tbody>
@@ -46,8 +47,9 @@ else
         Courses = await Service.Get();
     }
 
-    void DeleteHandler(int id)
+    async Task DeleteHandler(int id)
     {
+        await Swal.FireAsync("موفیت", "آیتم با موفقیت حذف شد", "success");
         Courses = Courses!.Where(c => !c.Id.Equals(id));
     }
 

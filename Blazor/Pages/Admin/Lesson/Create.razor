@@ -3,7 +3,7 @@
 @layout AdminLayout
 @inject IAdminLessonService Service
 @inject NavigationManager NavigationManager
-
+@inject SweetAlertService Swal
 
 <EditForm Model="@_lesson" OnValidSubmit="@Submit">
     <DataAnnotationsValidator/>
@@ -52,7 +52,9 @@
     private async void Submit()
     {
         var response = await Service.Create(_lesson);
-        if (response is not null) NavigationManager.NavigateTo($"/Admin/Courses/{CourseId}/Lessons");
+        if (response is null) return;
+        await Swal.FireAsync("موقیت", "آیتم با موفیت ثبت شد", "success");
+        NavigationManager.NavigateTo($"/Admin/Courses/{CourseId}/Lessons");
     }
 
 }

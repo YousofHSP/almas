@@ -3,6 +3,7 @@
 @layout AdminLayout
 @inject IAdminLessonService Service
 @inject NavigationManager NavigationManager
+@inject SweetAlertService Swal
 
 @if (Lesson is null)
 {
@@ -69,7 +70,9 @@ else
     private async void Submit()
     {
         var response = await Service.Update(Lesson!.Id, Lesson);
-        if (response is not null) NavigationManager.NavigateTo($"/Admin/Courses/{CourseId}/Lessons");
+        if (response is null) return;
+        await Swal.FireAsync("موقیت", "آیتم با موفیت ثبت شد", "success");
+        NavigationManager.NavigateTo($"/Admin/Courses/{CourseId}/Lessons");
     }
 
 }

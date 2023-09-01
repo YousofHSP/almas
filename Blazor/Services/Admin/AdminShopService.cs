@@ -1,6 +1,7 @@
 ﻿using System.Net;
 using System.Net.Http.Json;
 using Blazor.Services.Admin.Contracts;
+using CurrieTechnologies.Razor.SweetAlert2;
 using DTO;
 
 namespace Blazor.Services.Admin;
@@ -8,10 +9,12 @@ namespace Blazor.Services.Admin;
 public class AdminShopService: IAdminShopService
 {
     private readonly HttpClient _httpClient;
+    private readonly SweetAlertService _swal;
 
-    public AdminShopService(HttpClient httpClient)
+    public AdminShopService(HttpClient httpClient, SweetAlertService swal)
     {
         _httpClient = httpClient;
+        _swal = swal;
     }
 
     public async Task<IEnumerable<ShopResDto>?> Get()
@@ -25,7 +28,7 @@ public class AdminShopService: IAdminShopService
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
+            await _swal.FireAsync("خطا", e.Message, "error");
             throw;
         }
         
@@ -42,7 +45,7 @@ public class AdminShopService: IAdminShopService
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
+            await _swal.FireAsync("خطا", e.Message, "error");
             throw;
         }
     }
@@ -58,7 +61,7 @@ public class AdminShopService: IAdminShopService
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
+            await _swal.FireAsync("خطا", e.Message, "error");
             throw;
         }
     }
@@ -74,7 +77,7 @@ public class AdminShopService: IAdminShopService
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
+            await _swal.FireAsync("خطا", e.Message, "error");
             throw;
         }
     }
@@ -91,7 +94,7 @@ public class AdminShopService: IAdminShopService
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
+            await _swal.FireAsync("خطا", e.Message, "error");
             throw;
         }
     }
@@ -107,7 +110,7 @@ public class AdminShopService: IAdminShopService
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
+            await _swal.FireAsync("خطا", e.Message, "error");
             throw;
         }
     }
