@@ -36,7 +36,7 @@ else
                     <label class="label">
                         <span class="label-text">@(ModelExtensions.ToDisplay<InsurerDto>(c => c.Description))</span>
                     </label>
-                    <InputTextArea id="description" class="input input-bordered" @bind-Value="_insurer!.Description"></InputTextArea>
+                    <InputTextArea id="description" class="textarea textarea-bordered" @bind-Value="_insurer!.Description"></InputTextArea>
                 </div>
                 <button class="btn btn-outline" type="submit">ثبت</button>
             </div>

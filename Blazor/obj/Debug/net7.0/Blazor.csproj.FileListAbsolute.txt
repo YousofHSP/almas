@@ -1005,3 +1005,7 @@ G:\Projects\C#\Api\Almas\Blazor\obj\Debug\net7.0\build-gz\xtKCfOWt.gz
 G:\Projects\C#\Api\Almas\Blazor\obj\Debug\net7.0\build-gz\WSWE8ZF4.gz
 G:\Projects\C#\Api\Almas\Blazor\obj\Debug\net7.0\build-gz\a+fpYHem.gz
 G:\Projects\C#\Api\Almas\Blazor\obj\Debug\net7.0\build-gz\Oqe+ni+J.gz
+G:\Projects\C#\Api\Almas\Blazor\bin\Debug\net7.0\wwwroot\_framework\CurrieTechnologies.Razor.SweetAlert2.dll
+G:\Projects\C#\Api\Almas\Blazor\bin\Debug\net7.0\wwwroot\_framework\CurrieTechnologies.Razor.SweetAlert2.dll.gz
+G:\Projects\C#\Api\Almas\Blazor\bin\Debug\net7.0\CurrieTechnologies.Razor.SweetAlert2.dll
+G:\Projects\C#\Api\Almas\Blazor\obj\Debug\net7.0\build-gz\A3J54x1L.gz

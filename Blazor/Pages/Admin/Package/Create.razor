@@ -1,0 +1,57 @@
+﻿@page "/Admin/Packages/Create"
+@layout AdminLayout
+@inject IAdminPackageService Service
+@inject NavigationManager NavigationManager
+
+@if (IsLoading)
+{
+    <DisplaySpinner/>
+}
+else
+{
+    <EditForm Model="@_package" OnValidSubmit="@Submit">
+        <DataAnnotationsValidator/>
+        <ValidationSummary class="text-error"/>
+
+        <div class="card w-1/2">
+            <div class="card-body">
+                <div class="form-control">
+                    <label for="title" class="label">
+                        <span class="label-text">@(ModelExtensions.ToDisplay<PackageDto>(p => p.Title))</span>
+                    </label>
+                    <InputText id="title" class="input input-bordered" @bind-Value="_package.Title"></InputText>
+                </div>
+                <div class="form-control">
+                    <label for="price" class="label">
+                        <span class="label-text">@(ModelExtensions.ToDisplay<PackageDto>(p => p.Price))</span>
+                    </label>
+                    <InputNumber id="price" class="input input-bordered" @bind-Value="_package.Price"></InputNumber>
+                </div>
+                <div class="form-control">
+                    <label for="description" class="label">
+                        <span class="label-text">@(ModelExtensions.ToDisplay<PackageDto>(p => p.Description))</span>
+                    </label>
+                    <InputTextArea id="description" class="textarea textarea-bordered" @bind-Value="_package.Description"></InputTextArea>
+                </div>
+                <button type="submit" class="btn btn-outline">ثبت</button>
+            </div>
+        </div>
+    </EditForm>
+}
+
+@code {
+
+    [Parameter]
+    public bool IsLoading { get; set; } = false;
+
+    private readonly PackageDto _package = new();
+
+    private async void Submit()
+    {
+        IsLoading = true;
+        var response = await Service.Create(_package);
+        IsLoading = false;
+        if(response is not null) NavigationManager.NavigateTo("/Admin/Packages");
+    }
+
+}

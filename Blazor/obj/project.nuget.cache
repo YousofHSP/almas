@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "E6WIaunmrglJCQhUuMVaNboSSxXk+L3NMrjRblhu7hgeldfQ9WqyXYvUJk0WHZzyo/GYe8FBgbqbH8fNLJf1PA==",
+  "dgSpecHash": "whW/id4qgbM3USYDYYrp6jYDpEsLXaV2k1osfJ5uuNQSAN2VcyCSmjauYUbnKYKjnCdpeKV9+X2yENJF8/I7gg==",
   "success": true,
   "projectFilePath": "G:\\Projects\\C#\\Api\\Almas\\Blazor\\Blazor.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,7 @@
     "C:\\Users\\youso\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\youso\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\youso\\.nuget\\packages\\blazor.heroicons\\1.2.3\\blazor.heroicons.1.2.3.nupkg.sha512",
+    "C:\\Users\\youso\\.nuget\\packages\\currietechnologies.razor.sweetalert2\\5.5.0\\currietechnologies.razor.sweetalert2.5.5.0.nupkg.sha512",
     "C:\\Users\\youso\\.nuget\\packages\\microsoft.aspnetcore.authorization\\7.0.10\\microsoft.aspnetcore.authorization.7.0.10.nupkg.sha512",
     "C:\\Users\\youso\\.nuget\\packages\\microsoft.aspnetcore.components\\7.0.10\\microsoft.aspnetcore.components.7.0.10.nupkg.sha512",
     "C:\\Users\\youso\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\7.0.10\\microsoft.aspnetcore.components.analyzers.7.0.10.nupkg.sha512",
