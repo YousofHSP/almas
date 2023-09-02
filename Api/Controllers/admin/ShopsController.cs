@@ -38,7 +38,7 @@ public class ShopsController : CrudController<ShopDto, ShopResDto, Shop>
     }
 
     [HttpGet]
-    public override async Task<ActionResult<List<ShopResDto>>> Get(CancellationToken cancellationToken)
+    public override async Task<ApiResult<List<ShopResDto>>> Get(CancellationToken cancellationToken)
     {
         var result = await Repository.TableNoTracking
             .Include(shop => shop.User)

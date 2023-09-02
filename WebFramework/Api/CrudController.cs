@@ -30,7 +30,7 @@ public class CrudController<TDto, TResDto, TEntity, TKey> : BaseController
     }
 
     [HttpGet]
-    public virtual async Task<ActionResult<List<TResDto>>> Get(CancellationToken cancellationToken)
+    public virtual async Task<ApiResult<List<TResDto>>> Get(CancellationToken cancellationToken)
     {
         var list = await Repository.TableNoTracking
             .ProjectTo<TResDto>(Mapper.ConfigurationProvider).ToListAsync(cancellationToken);

@@ -1,14 +1,18 @@
-﻿using AutoMapper;
+﻿using Api.Models;
+using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Common;
 using Common.Exceptions;
 using Data.Contracts;
 using DTO;
 using Entities;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Service.Helpers;
+using Services;
 using WebFramework.Api;
 
 namespace Api.Controllers.admin;
@@ -25,22 +29,21 @@ public class PackagesController: CrudController<PackageDto, PackageResDto, Packa
         IRepository<Upload> uploadRepository,
         IOptions<SiteSettings> settings,
         IWebHostEnvironment env,
-        
         IMapper mapper) : base(repository, mapper)
     {
         _uploadRepository = uploadRepository;
         _settings = settings.Value;
         _env = env;
     }
-
+ 
     [HttpGet]
-    public override async Task<ActionResult<List<PackageResDto>>> Get(CancellationToken cancellationToken)
+    public override async Task<ApiResult<List<PackageResDto>>> Get(CancellationToken cancellationToken)
     {
         var packages = await Repository.TableNoTracking.ProjectTo<PackageResDto>(Mapper.ConfigurationProvider).ToListAsync(cancellationToken);
         var imageDictionary = await _uploadRepository.TableNoTracking
             .Where(i => i.Parent.Equals(Parent.Package))
             .ToDictionaryAsync(i => i.ParentId,i => i, cancellationToken);
-
+    
         
         foreach (var package in packages)
         {
@@ -48,7 +51,7 @@ public class PackagesController: CrudController<PackageDto, PackageResDto, Packa
             if (imageDictionary.TryGetValue(package.Id, out var image))
                 package.Image = image.GeneratePath(_settings.Url);
         }
-
+    
         return Ok(packages);
     }
 
@@ -79,4 +82,6 @@ public class PackagesController: CrudController<PackageDto, PackageResDto, Packa
         
         return Ok(resDto);
     }
+
+    
 }

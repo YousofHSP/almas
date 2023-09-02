@@ -1,9 +1,11 @@
 ﻿@page "/Login"
 @layout AuthLayout
 @inject NavigationManager NavigationManager
+@inject IAdminUserService Service
+@inject IJSRuntime JsRuntime
 
 
-<from>
+<EditForm Model="@LoginDto" OnValidSubmit="@Submit">
     <div class="hero min-h-screen bg-base-200">
         <div class="hero-content flex-col lg:flex-row-reverse">
             <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
@@ -12,30 +14,33 @@
                         <label class="label">
                             <span class="label-text">نام کاربری</span>
                         </label>
-                        <input type="text" class="input input-bordered" @bind="LoginDto!.UserName"/>
+                        <InputText id="username" class="input input-bordered" @bind-Value="LoginDto!.username"/>
                     </div>
                     <div class="form-control">
                         <label class="label">
                             <span class="label-text">رمز</span>
                         </label>
-                        <input type="text" class="input input-bordered" @bind="LoginDto!.Password"/>
+                        <InputText type="password" id="password" class="input input-bordered" @bind-Value="LoginDto!.password"/>
                     </div>
                     <div class="form-control mt-6">
-                        <button @onclick="Submit" type="submit" class="btn btn-primary">ورود</button>
+                        <button type="submit" class="btn btn-primary">ورود</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</from>
+</EditForm>
 
 
 @code {
     private LoginDto? LoginDto { get; set; }
-    protected override void OnInitialized() => LoginDto ??= new LoginDto();
+    protected override void OnInitialized() => LoginDto ??= new LoginDto() { grant_type = "password" };
 
-    private void Submit()
+    private async Task Submit()
     {
+        var token = await Service.Login(LoginDto!);
+        if (string.IsNullOrEmpty(token)) return;
+        await JsRuntime.InvokeVoidAsync("localStorage.setItem", "token", token);
         NavigationManager.NavigateTo("/Admin/Shops");
     }
 

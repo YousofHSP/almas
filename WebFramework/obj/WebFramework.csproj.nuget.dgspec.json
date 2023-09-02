@@ -308,6 +308,9 @@
             "projectReferences": {
               "G:\\Projects\\C#\\Api\\Almas\\Data\\Data.csproj": {
                 "projectPath": "G:\\Projects\\C#\\Api\\Almas\\Data\\Data.csproj"
+              },
+              "G:\\Projects\\C#\\Api\\Almas\\DTO\\DTO.csproj": {
+                "projectPath": "G:\\Projects\\C#\\Api\\Almas\\DTO\\DTO.csproj"
               }
             }
           }

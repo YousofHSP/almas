@@ -17,3 +17,5 @@ G:\Projects\C#\Api\Almas\Service\obj\Debug\net7.0\Service.dll
 G:\Projects\C#\Api\Almas\Service\obj\Debug\net7.0\refint\Service.dll
 G:\Projects\C#\Api\Almas\Service\obj\Debug\net7.0\Service.pdb
 G:\Projects\C#\Api\Almas\Service\obj\Debug\net7.0\ref\Service.dll
+G:\Projects\C#\Api\Almas\Service\bin\Debug\net7.0\DTO.dll
+G:\Projects\C#\Api\Almas\Service\bin\Debug\net7.0\DTO.pdb

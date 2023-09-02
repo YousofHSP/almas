@@ -32,7 +32,7 @@ public class InsurersController: CrudController<InsurerDto, InsurerResDto, Insur
     }
 
     [HttpGet]
-    public override async Task<ActionResult<List<InsurerResDto>>> Get(CancellationToken cancellationToken)
+    public override async Task<ApiResult<List<InsurerResDto>>> Get(CancellationToken cancellationToken)
     {
         var insurers = await Repository.TableNoTracking
             .ProjectTo<InsurerResDto>(Mapper.ConfigurationProvider)
