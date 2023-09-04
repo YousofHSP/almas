@@ -5,6 +5,7 @@ using Common.Exceptions;
 using Data.Contracts;
 using DTO;
 using Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
@@ -14,6 +15,7 @@ using WebFramework.Api;
 namespace Api.Controllers.V1;
 
 [ApiVersion("1")]
+[AllowAnonymous]
 public class InsurersController : BaseController
 {
     private readonly IRepository<Insurer> _repository;

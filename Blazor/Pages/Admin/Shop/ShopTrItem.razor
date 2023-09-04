@@ -1,5 +1,6 @@
 ﻿@using System.Net.Http.Headers
-@inject IAdminShopService Service
+@using Entities
+@inject IAdminService<Shop, ShopDto, ShopResDto> Service
 @inject SweetAlertService Swal
 
 @if (_isLoading)
@@ -57,7 +58,7 @@ else
             fileContent.Headers.ContentType = new MediaTypeHeaderValue(file.ContentType);
             content.Add(fileContent, "Image", file.Name);
         }
-        var response = await Service.UploadImage(Shop.Id, content);
+        var response = await Service.UploadFile(Shop.Id, content);
         _isLoading = false;
         if (response is null) return;
         Shop = response;

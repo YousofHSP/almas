@@ -5,100 +5,26 @@ using System.Text.Json;
 using Blazor.Services.Admin.Contracts;
 using CurrieTechnologies.Razor.SweetAlert2;
 using DTO;
+using Entities;
+using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 
 namespace Blazor.Services.Admin;
 
-public class AdminUserService: IAdminUserService
+public class AdminUserService : AdminService<User, UserDto, UserResDto>, IAdminUserService
 {
-    private readonly HttpClient _httpClient;
-    private readonly SweetAlertService _swal;
 
-    public AdminUserService(HttpClient httpClient, SweetAlertService swal)
+    public AdminUserService(
+        HttpClient httpClient,
+        SweetAlertService swal,
+        NavigationManager navigationManager,
+        IJSRuntime jsRuntime) : base(
+        httpClient,
+        swal,
+        navigationManager,
+        jsRuntime)
     {
-        _httpClient = httpClient;
-        _swal = swal;
     }
-    public async Task<List<UserResDto>?> Get()
-    {
-        try
-        {
-            var response = await _httpClient.GetAsync("Admin/Users");
-            var apiResult = await response.Content.ReadFromJsonAsync<ApiResult<List<UserResDto>>>();
-            if (!response.IsSuccessStatusCode) throw new Exception(apiResult?.Message ?? "خطایی رخ داده است");
-            return response.StatusCode == HttpStatusCode.NoContent ? default : apiResult!.Data;
-        }
-        catch (Exception e)
-        {
-            await _swal.FireAsync("خطا", e.Message, "error");
-            throw;
-        }
-    }
-
-    public async Task<UserResDto?> Get(int id)
-    {
-        try
-        {
-            var response = await _httpClient.GetAsync($"Admin/Users/{id}");
-            var apiResult = await response.Content.ReadFromJsonAsync<ApiResult<UserResDto>>();
-            if (!response.IsSuccessStatusCode) throw new Exception(apiResult?.Message ?? "خطایی رخ داده است");
-            return response.StatusCode == HttpStatusCode.NoContent ? default : apiResult!.Data;
-        }
-        catch (Exception e)
-        {
-            await _swal.FireAsync("خطا", e.Message, "error");
-            throw;
-        }
-    }
-
-    public async Task<UserResDto?> Create(UserDto dto)
-    {
-        try
-        {
-            var response = await _httpClient.PostAsJsonAsync("Admin/Users", dto);
-            var apiResult = await response.Content.ReadFromJsonAsync<ApiResult<UserResDto>>();
-            if (!response.IsSuccessStatusCode) throw new Exception(apiResult?.Message ?? "خطایی رخ داده است");
-            return response.StatusCode == HttpStatusCode.NoContent ? default : apiResult!.Data;
-        }
-        catch (Exception e)
-        {
-            await _swal.FireAsync("خطا", e.Message, "error");
-            throw;
-        }
-    }
-
-    public async Task<UserResDto?> Update(int id, UserDto dto)
-    {
-        try
-        {
-            var response = await _httpClient.PostAsJsonAsync($"Admin/Users/{id}", dto);
-            var apiResult = await response.Content.ReadFromJsonAsync<ApiResult<UserResDto>>();
-            if (!response.IsSuccessStatusCode) throw new Exception(apiResult?.Message ?? "خطایی رخ داده است");
-            return response.StatusCode == HttpStatusCode.NoContent ? default : apiResult!.Data;
-        }
-        catch (Exception e)
-        {
-            await _swal.FireAsync("خطا", e.Message, "error");
-            throw;
-        }
-    }
-
-    public async Task Delete(int id)
-    {
-        try
-        {
-            var response = await _httpClient.DeleteAsync($"Admin/Users/{id}");
-            var apiResult = await response.Content.ReadFromJsonAsync<ApiResult>();
-            if (!response.IsSuccessStatusCode) throw new Exception(apiResult?.Message ?? "خطایی رخ داده است");
-            if(response.StatusCode == HttpStatusCode.NoContent) throw new Exception(apiResult?.Message ?? "خطایی رخ داده است");
-
-        }
-        catch (Exception e)
-        {
-            await _swal.FireAsync("خطا", e.Message, "error");
-            throw;
-        }
-    }
-
     public async Task<string> Login(LoginDto dto)
     {
         try
@@ -108,7 +34,7 @@ public class AdminUserService: IAdminUserService
             formData.Add(new StringContent(dto.password, Encoding.UTF8), "password");
             formData.Add(new StringContent("password", Encoding.UTF8), "grant_type");
 
-            var response = await _httpClient.PostAsync("Admin/Users/Token", formData);
+            var response = await HttpClient.PostAsync("Admin/Users/Token", formData);
             if (!response.IsSuccessStatusCode)
             {
                 var apiResult = await response.Content.ReadFromJsonAsync<ApiResult>();
@@ -120,7 +46,7 @@ public class AdminUserService: IAdminUserService
         }
         catch (Exception e)
         {
-            await _swal.FireAsync("خطا", e.Message, "error");
+            await Swal.FireAsync("خطا", e.Message, "error");
             throw;
         }
     }

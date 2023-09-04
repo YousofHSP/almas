@@ -18,11 +18,8 @@ builder.Services.AddScoped<IShopService, ShopService>();
 builder.Services.AddScoped<IInsurerService, InsurerService>();
 
 // admin services
-builder.Services.AddScoped<IAdminShopService, AdminShopService>();
-builder.Services.AddScoped<IAdminCourseService, AdminCourseService>();
+builder.Services.AddScoped(typeof(IAdminService<,,>), typeof(AdminService<,,>));
 builder.Services.AddScoped<IAdminUserService, AdminUserService>();
 builder.Services.AddScoped<IAdminLessonService, AdminLessonService>();
-builder.Services.AddScoped<IAdminInsurerService, AdminInsurerService>();
-builder.Services.AddScoped<IAdminPackageService, AdminPackageService>();
 
 await builder.Build().RunAsync();

@@ -1,7 +1,7 @@
 ﻿@page "/Admin/Packages"
 @using System.Net.Http.Headers
 @layout AdminLayout
-@inject IAdminPackageService Service
+@inject IAdminService<Package, PackageDto, PackageResDto> Service
 @inject SweetAlertService Swal
 
 @if (Packages is null || IsLoading)

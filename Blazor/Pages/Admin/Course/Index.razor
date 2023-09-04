@@ -1,6 +1,6 @@
 ﻿@page "/Admin/Courses"
 @layout AdminLayout
-@inject IAdminCourseService Service
+@inject IAdminService<Course, CourseDto, CourseResDto> Service
 @inject SweetAlertService Swal
 
 @if (Courses is null)

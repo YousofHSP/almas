@@ -1,7 +1,7 @@
 ﻿@page "/Admin/Insurers"
 @using System.Net.Http.Headers
 @layout AdminLayout
-@inject IAdminInsurerService Service
+@inject IAdminService<Insurer, InsurerDto, InsurerResDto> Service
 @inject SweetAlertService Swal
 
 @if (Insurers is null || IsLoading)
@@ -86,7 +86,7 @@ else
             fileContent.Headers.ContentType = new MediaTypeHeaderValue(file.ContentType);
             content.Add(fileContent, "Image", file.Name);
         }
-        var response = await Service.UploadImage(id, content);
+        var response = await Service.UploadFile(id, content);
         IsLoading = false;
         if (response is null) return;
         foreach (var insurer in Insurers!.Where(insurer => !insurer.Id.Equals(response.Id)))

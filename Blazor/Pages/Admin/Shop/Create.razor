@@ -1,7 +1,8 @@
 ﻿@page "/Admin/Shops/Create"
 @using Common.Utilities
+@using Entities
 @layout AdminLayout
-@inject IAdminShopService Service
+@inject IAdminService<Shop, ShopDto, ShopResDto> Service
 @inject NavigationManager NavigationManager
 @inject IAdminUserService UserService
 @inject SweetAlertService Swal

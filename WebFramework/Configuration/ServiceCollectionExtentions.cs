@@ -38,10 +38,11 @@ namespace WebFramework.Configuration
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             }).AddJwtBearer(options =>
             {
+                options.IncludeErrorDetails = true;
                 var secretKey = Encoding.UTF8.GetBytes(jwtSettings.SecretKey);
                 var encryptKey = Encoding.UTF8.GetBytes(jwtSettings.EncryptKey);
-
-
+                
+                
                 var validationParameters = new TokenValidationParameters
                 {
                     ClockSkew = TimeSpan.Zero,
@@ -100,7 +101,7 @@ namespace WebFramework.Configuration
                             if (validatedUser == null)
                                 context.Fail("Token security stamp is not valid.");
 
-                            if (!user.Status.Equals(UserStatus.Disable))
+                            if (user.Status.Equals(UserStatus.Disable))
                                 context.Fail("User is not active.");
 
                             await userRepository.UpdateLastLoginDateAsync(user, context.HttpContext.RequestAborted);

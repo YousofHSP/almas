@@ -2,7 +2,7 @@
 @using Entities
 @using Common.Utilities
 @layout AdminLayout
-@inject IAdminCourseService Service
+@inject IAdminService<Course, CourseDto, CourseResDto> Service
 @inject NavigationManager NavigationManager
 @inject IAdminUserService UserService
 @inject SweetAlertService Swal

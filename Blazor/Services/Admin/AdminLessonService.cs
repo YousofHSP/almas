@@ -3,111 +3,38 @@ using System.Net.Http.Json;
 using Blazor.Services.Admin.Contracts;
 using CurrieTechnologies.Razor.SweetAlert2;
 using DTO;
+using Entities;
+using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 
 namespace Blazor.Services.Admin;
 
-public class AdminLessonService: IAdminLessonService
+public class AdminLessonService : AdminService<Lesson, LessonDto, LessonResDto>, IAdminLessonService
 {
-    private readonly HttpClient _httpClient;
-    private readonly SweetAlertService _swal;
-
-    public AdminLessonService(HttpClient httpClient, SweetAlertService swal)
+    public AdminLessonService(
+        HttpClient httpClient,
+        SweetAlertService swal,
+        NavigationManager navigationManager,
+        IJSRuntime jsRuntime) : base(
+        httpClient,
+        swal,
+        navigationManager,
+        jsRuntime)
     {
-        _httpClient = httpClient;
-        _swal = swal;
-    }
-    public async Task<List<LessonResDto>?> Get()
-    {
-        try
-        {
-            var response = await _httpClient.GetAsync("admin/Lessons");
-            var apiResult = await response.Content.ReadFromJsonAsync<ApiResult<List<LessonResDto>>>();
-            if (!response.IsSuccessStatusCode) throw new Exception(apiResult?.Message ?? "خطایی رخ داده است");
-            return response.StatusCode == HttpStatusCode.NoContent ? default : apiResult!.Data;
-        }
-        catch (Exception e)
-        {
-            await _swal.FireAsync("خطا", e.Message, "error");
-            throw;
-        }
-    }
-
-    public async Task<LessonResDto?> Get(int id)
-    {
-        try
-        {
-            var response = await _httpClient.GetAsync($"admin/Lessons/{id}");
-            var apiResult = await response.Content.ReadFromJsonAsync<ApiResult<LessonResDto>>();
-            if (!response.IsSuccessStatusCode) throw new Exception(apiResult?.Message ?? "خطایی رخ داده است");
-            return response.StatusCode == HttpStatusCode.NoContent ? default : apiResult!.Data;
-        }
-        catch (Exception e)
-        {
-            await _swal.FireAsync("خطا", e.Message, "error");
-            throw;
-        }
-    }
-
-    public async Task<LessonResDto?> Create(LessonDto dto)
-    {
-        try
-        {
-            var response = await _httpClient.PostAsJsonAsync("admin/Lessons/", dto);
-            var apiResult = await response.Content.ReadFromJsonAsync<ApiResult<LessonResDto>>();
-            if (!response.IsSuccessStatusCode) throw new Exception(apiResult?.Message ?? "خطایی رخ داده است");
-            return response.StatusCode == HttpStatusCode.NoContent ? default : apiResult!.Data;
-        }
-        catch (Exception e)
-        {
-            await _swal.FireAsync("خطا", e.Message, "error");
-            throw;
-        }
-    }
-
-    public async Task<LessonResDto?> Update(int id, LessonDto dto)
-    {
-        try
-        {
-            var response = await _httpClient.PatchAsJsonAsync($"admin/Lessons/{id}", dto);
-            var apiResult = await response.Content.ReadFromJsonAsync<ApiResult<LessonResDto>>();
-            if (!response.IsSuccessStatusCode) throw new Exception(apiResult?.Message ?? "خطایی رخ داده است");
-            return response.StatusCode == HttpStatusCode.NoContent ? default : apiResult!.Data;
-        }
-        catch (Exception e)
-        {
-            await _swal.FireAsync("خطا", e.Message, "error");
-            throw;
-        }
     }
 
     public async Task<CourseResDto?> GetByCourseId(int courseId)
     {
         try
         {
-            var response = await _httpClient.GetAsync($"admin/Courses/{courseId}/Lessons");
+            var response = await HttpClient.GetAsync($"admin/Courses/{courseId}/Lessons");
             var apiResult = await response.Content.ReadFromJsonAsync<ApiResult<CourseResDto>>();
             if (!response.IsSuccessStatusCode) throw new Exception(apiResult?.Message ?? "خطایی رخ داده است");
             return response.StatusCode == HttpStatusCode.NoContent ? default : apiResult!.Data;
         }
         catch (Exception e)
         {
-            await _swal.FireAsync("خطا", e.Message, "error");
-            throw;
-        }
-    }
-
-    public async Task<LessonResDto?> UploadFile(int id, MultipartFormDataContent file)
-    {
-        try
-        {
-            var response = await _httpClient.PostAsync($"admin/Lessons/{id}/UploadFile", file);
-            var apiResult = await response.Content.ReadFromJsonAsync<ApiResult<LessonResDto>>();
-            if (!response.IsSuccessStatusCode) throw new Exception(apiResult?.Message ?? "خطایی رخ داده است");
-            return response.StatusCode == HttpStatusCode.NoContent ? default : apiResult!.Data;
-        }
-        catch (Exception e)
-        {
-            await _swal.FireAsync("خطا", e.Message, "error");
+            await Swal.FireAsync("خطا", e.Message, "error");
             throw;
         }
     }

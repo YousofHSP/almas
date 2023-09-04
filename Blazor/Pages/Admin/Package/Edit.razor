@@ -1,6 +1,6 @@
 ﻿@page "/Packages/{Id:int}/Edit"
 @layout AdminLayout
-@inject IAdminPackageService Service
+@inject IAdminService<Package, PackageDto, PackageResDto> Service
 @inject NavigationManager NavigationManager
 @inject SweetAlertService Swal
 

@@ -1,6 +1,6 @@
 ﻿@page "/Admin/Insurers/Create"
 @layout AdminLayout
-@inject IAdminInsurerService Service
+@inject IAdminService<Insurer, InsurerDto, InsurerResDto> Service
 @inject NavigationManager NavigationManager
 @inject IAdminUserService UserService
 @inject SweetAlertService Swal

@@ -1,6 +1,7 @@
 ﻿@page "/Admin/Shops/{Id:int}/Edit"
 @layout AdminLayout
 @inject NavigationManager NavigationManager
+@inject IAdminService<Shop, ShopDto, ShopResDto> Service
 @inject IAdminUserService UserService
 @inject SweetAlertService Swal
 
@@ -53,9 +54,6 @@ else
     
     private ShopResDto? Model { get; set; }
     private IEnumerable<UserResDto>? _users;
-
-    [Inject]
-    private IAdminShopService Service { get; set; } = null!;
 
     protected override async Task OnInitializedAsync()
     {
