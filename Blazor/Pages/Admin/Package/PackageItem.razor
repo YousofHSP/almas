@@ -42,7 +42,7 @@
             fileContent.Headers.ContentType = new MediaTypeHeaderValue(file.ContentType);
             content.Add(fileContent, "Image", file.Name);
         }
-        var response = await Service.UploadImage(id, content);
+        var response = await Service.UploadFile(id, content);
         if (response is null) return;
         Package.Image = response.Image;
     }
