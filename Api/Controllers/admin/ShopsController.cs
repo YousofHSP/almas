@@ -59,7 +59,7 @@ public class ShopsController : CrudController<ShopDto, ShopResDto, Shop>
         return Ok(result);
     }
 
-    [HttpPost("{id:int}/UploadImage")]
+    [HttpPost("{id:int}/UploadFile")]
     public async Task<ApiResult<ShopResDto>> UploadImage(int id, IFormFile image, CancellationToken cancellationToken)
     {
         var model = await Repository.TableNoTracking

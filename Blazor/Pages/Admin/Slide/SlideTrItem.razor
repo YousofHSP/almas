@@ -1,0 +1,57 @@
+﻿@using System.Net.Http.Headers
+@layout AdminLayout
+@inject IAdminService<Slide, SlideDto, SlideResDto> Service
+
+<td>
+    <div class="flex items-center space-x-3 space-x-reverse">
+        <div class="avatar">
+            <div class="mask mask-squircle w-12 h-12">
+                <img src="@Slide.Image" alt="Avatar Tailwind CSS Component"/>
+            </div>
+        </div>
+        <div>
+            <div class="font-bold">@Slide.Title</div>
+        </div>
+    </div>
+</td>
+<td>@Slide.Description</td>
+<td>
+    <a href="/Admin/Insurers/@Slide.Id/Edit" class="btn btn-sm btn-outline">ویرایش</a>
+    <label class="btn btn-outline btn-sm" for="@("image_" + Slide.Id)">
+        آپلود تصویر
+    </label>
+    <EditForm class="hidden" Model="Slide">
+        <InputFile OnChange="@((args) => OnInputFileChange(args, Slide.Id))" id="@("image_" + Slide.Id)" class="hidden"/>
+    </EditForm>
+    <button onclick="@(async () => await Delete(Slide.Id))" class="btn btn-outline btn-sm btn-error">حذف</button>
+</td>
+
+@code {
+
+    [Parameter]
+    public SlideResDto Slide { get; set; } = null!;
+
+    [Parameter]
+    public EventCallback<SlideResDto> OnDelete { get; set; }
+
+    private async Task OnInputFileChange(InputFileChangeEventArgs e, int id)
+    {
+        using var content = new MultipartFormDataContent();
+        foreach (var file in e.GetMultipleFiles(1))
+        {
+            var fileContent = new StreamContent(file.OpenReadStream(long.MaxValue));
+            fileContent.Headers.ContentType = new MediaTypeHeaderValue(file.ContentType);
+            content.Add(fileContent, "Image", file.Name);
+        }
+        var response = await Service.UploadFile(id, content);
+        if (response is null) return;
+        Slide.Image = response.Image;
+    }
+
+    private async Task Delete(int id)
+    {
+        await Service.Delete(id);
+        await OnDelete.InvokeAsync(Slide);
+    }
+
+}

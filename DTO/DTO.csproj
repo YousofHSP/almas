@@ -11,14 +11,6 @@
         <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
     </ItemGroup>
     <ItemGroup>
-      <Reference Include="Microsoft.AspNetCore.Http">
-        <HintPath>C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\7.0.10\Microsoft.AspNetCore.Http.dll</HintPath>
-      </Reference>
-      <Reference Include="Microsoft.AspNetCore.Http.Features">
-        <HintPath>C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\7.0.10\Microsoft.AspNetCore.Http.Features.dll</HintPath>
-      </Reference>
-    </ItemGroup>
-    <ItemGroup>
       <ProjectReference Include="..\Data\Data.csproj" />
     </ItemGroup>
 

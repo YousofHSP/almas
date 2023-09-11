@@ -1,0 +1,11 @@
+﻿{
+  "disks": [
+    {
+      "name": "upload",
+      "mountTo": "Api/wwwroot/uploads"
+    }
+  ],
+  "netcore": {
+    "version": "7.0"
+  }
+}

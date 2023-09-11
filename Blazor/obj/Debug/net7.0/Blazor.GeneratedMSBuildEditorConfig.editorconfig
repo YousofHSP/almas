@@ -40,6 +40,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ291cnNlXEluZGV4LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[G:/Projects/C\#/Api/Almas/Blazor/Pages/Admin/Dashboard/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRGFzaGJvYXJkXEluZGV4LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [G:/Projects/C\#/Api/Almas/Blazor/Pages/Admin/Insurer/Create.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cSW5zdXJlclxDcmVhdGUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
@@ -94,6 +98,26 @@ build_metadata.AdditionalFiles.CssScope =
 
 [G:/Projects/C\#/Api/Almas/Blazor/Pages/Admin/Shop/ShopTrItem.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cU2hvcFxTaG9wVHJJdGVtLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Projects/C\#/Api/Almas/Blazor/Pages/Admin/Slide/Create.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cU2xpZGVcQ3JlYXRlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Projects/C\#/Api/Almas/Blazor/Pages/Admin/Slide/Edit.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cU2xpZGVcRWRpdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Projects/C\#/Api/Almas/Blazor/Pages/Admin/Slide/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cU2xpZGVcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Projects/C\#/Api/Almas/Blazor/Pages/Admin/Slide/SlideTrItem.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cU2xpZGVcU2xpZGVUckl0ZW0ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Projects/C\#/Api/Almas/Blazor/Pages/Course/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291cnNlXEluZGV4LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [G:/Projects/C\#/Api/Almas/Blazor/Pages/Index.razor]
@@ -155,3 +179,7 @@ build_metadata.AdditionalFiles.CssScope =
 [G:/Projects/C\#/Api/Almas/Blazor/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Projects/C\#/Api/Almas/Blazor/Shared/Components/Carousel.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENvbXBvbmVudHNcQ2Fyb3VzZWwucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-7iyz38cy2x

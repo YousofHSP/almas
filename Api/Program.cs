@@ -67,7 +67,9 @@ try
 
     app.UseCors(options =>
     {
-        options.WithOrigins("*").AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin();
+        options.AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader();
     });
     
     app.UseStaticFiles();
@@ -75,7 +77,7 @@ try
     {
         FileProvider = new PhysicalFileProvider(
             Path.Combine(Directory.GetCurrentDirectory(), "wwwroot")),
-        RequestPath = "/static"
+        RequestPath = "/uploads"
     });
 
     app.Run();

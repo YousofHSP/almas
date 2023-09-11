@@ -1,6 +1,7 @@
 ﻿@page "/"
 @inherits IndexBase
 
+
 <section class="hero min-h-screen" style="background-image: url(images/background.jpg);">
     <div class="hero-overlay bg-opacity-60"></div>
     <div class="hero-content text-center text-neutral-content">
@@ -31,6 +32,73 @@
     </a>
 </section>
 
+<section>
+    <div class="text-center py-20 ">
+        <h2 class="text-2xl font-bold">رویداد ها</h2>
+    </div>
+    <Carousel/>
+</section>
+<section>
+    <div class="text-center py-20 ">
+        <h2 class="text-2xl font-bold">پکیح ها</h2>
+    </div>
+    <div class="grid grid-cols-3 gap-4">
+        @if (Packages is null)
+        {
+            <DisplaySpinner/>
+        }
+        else
+        {
+            @foreach (var package in Packages)
+            {
+                <div class="card w-96 bg-base-100 shadow-xl image-full">
+                    <figure>
+                        <img src="@package.Image" alt="Insurers"/>
+                    </figure>
+                    <div class="card-body">
+                        <h2 class="card-title">@package.Title</h2>
+                        <p>@package.Description</p>
+                        <div class="card-actions justify-end">
+                            <a href="Insurers/@package.Id" class="btn btn-primary">بیشتر</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+
+    </div>
+</section>
+
+<section class="mb-10 px-10">
+    @if (Insurers is null)
+    {
+        <DisplaySpinner/>
+    }
+    else
+    {
+        <div class="text-center py-20 ">
+            <h2 class="text-2xl font-bold">بیمه ها</h2>
+        </div>
+        <div class="m-auto grid grid-cols-3 gap-3">
+            @foreach (var insurer in Insurers)
+            {
+                <div class="card w-96 bg-base-100 shadow-xl image-full">
+                    <figure>
+                        <img src="@insurer.Image" alt="Insurers"/>
+                    </figure>
+                    <div class="card-body">
+                        <h2 class="card-title">@insurer.Title</h2>
+                        <p>@insurer.Description</p>
+                        <div class="card-actions justify-end">
+                            <a href="Insurers/@insurer.Id" class="btn btn-primary">بیشتر</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</section>
+<hr>
 <section class="px-10">
     @if (Shops is null)
     {
@@ -45,7 +113,6 @@
             @foreach (var shop in Shops)
             {
                 <ShopItem Shop="shop"/>
-
             }
         </div>
     }

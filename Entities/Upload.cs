@@ -29,5 +29,6 @@ public enum Parent
     Lesson,
     Course,
     Insurer,
-    Package
+    Package,
+    Slide,
 }

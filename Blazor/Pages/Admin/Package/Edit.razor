@@ -33,7 +33,7 @@ else
                     <label for="description" class="label">
                         <span class="label-text">@(ModelExtensions.ToDisplay<PackageDto>(p => p.Description))</span>
                     </label>
-                    <InputTextArea id="description" class="textarea textarea-bordered"></InputTextArea>
+                    <InputTextArea id="description" class="textarea textarea-bordered" @bindbind-Value="@_package.Description"></InputTextArea>
                 </div>
                 <button type="submit" class="btn btn-outline">ثبت</button>
             </div>

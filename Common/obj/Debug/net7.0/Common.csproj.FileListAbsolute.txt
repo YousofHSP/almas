@@ -10,14 +10,3 @@ G:\Projects\C#\Api\Almas\Common\obj\Debug\net7.0\Common.dll
 G:\Projects\C#\Api\Almas\Common\obj\Debug\net7.0\refint\Common.dll
 G:\Projects\C#\Api\Almas\Common\obj\Debug\net7.0\Common.pdb
 G:\Projects\C#\Api\Almas\Common\obj\Debug\net7.0\ref\Common.dll
-G:\Projects\C#\Api\Almas\Common\bin\Debug\net7.0\Microsoft.AspNetCore.Hosting.Abstractions.dll
-G:\Projects\C#\Api\Almas\Common\bin\Debug\net7.0\Microsoft.AspNetCore.Http.Features.dll
-G:\Projects\C#\Api\Almas\Common\bin\Debug\net7.0\Microsoft.AspNetCore.Hosting.Server.Abstractions.dll
-G:\Projects\C#\Api\Almas\Common\bin\Debug\net7.0\Microsoft.Extensions.FileProviders.Abstractions.dll
-G:\Projects\C#\Api\Almas\Common\bin\Debug\net7.0\Microsoft.AspNetCore.Http.Abstractions.dll
-G:\Projects\C#\Api\Almas\Common\bin\Debug\net7.0\Microsoft.Extensions.Features.dll
-G:\Projects\C#\Api\Almas\Common\bin\Debug\net7.0\Microsoft.Extensions.Hosting.Abstractions.dll
-G:\Projects\C#\Api\Almas\Common\bin\Debug\net7.0\Microsoft.Net.Http.Headers.dll
-G:\Projects\C#\Api\Almas\Common\bin\Debug\net7.0\System.IO.Pipelines.dll
-G:\Projects\C#\Api\Almas\Common\bin\Debug\net7.0\Microsoft.AspNetCore.Connections.Abstractions.dll
-G:\Projects\C#\Api\Almas\Common\obj\Debug\net7.0\Common.csproj.CopyComplete

@@ -33,7 +33,7 @@ public class CoursesController: CrudController<CourseDto, CourseResDto, Course>
         _env = env;
     }
 
-    [HttpPost("{id}/UploadImage")]
+    [HttpPost("{id}/UploadFile")]
     public async Task<ApiResult<CourseResDto>> UploadImage(int id, IFormFile image, CancellationToken cancellationToken)
     {
         var model = await Repository.TableNoTracking.SingleOrDefaultAsync(c => c.Id.Equals(id), cancellationToken);

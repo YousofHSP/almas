@@ -1,0 +1,49 @@
+﻿@page "/Admin/Slides/Create"
+@layout AdminLayout
+@inject IAdminService<Slide, SlideDto,SlideResDto> Service
+@inject SweetAlertService Swal
+@inject NavigationManager NavigationManager
+
+@if (IsLoading)
+{
+    <DisplaySpinner/>
+}
+else
+{
+    <EditForm Model="@_slide" OnValidSubmit="@Submit">
+        <DataAnnotationsValidator/>
+        <ValidationSummary class="text-error"/>
+
+        <div class="card w-1/2">
+            <div class="card-body">
+                <div class="form-control">
+                    <label for="title" class="label">
+                        <span class="label-text">@(ModelExtensions.ToDisplay<SlideDto>(p => p.Title))</span>
+                    </label>
+                    <InputText id="title" class="input input-bordered" @bind-Value="_slide.Title"></InputText>
+                </div>
+                <div class="form-control">
+                    <label for="description" class="label">
+                        <span class="label-text">@(ModelExtensions.ToDisplay<SlideDto>(p => p.Description))</span>
+                    </label>
+                    <InputTextArea id="description" class="textarea textarea-bordered" @bind-Value="_slide.Description"></InputTextArea>
+                </div>
+                <button type="submit" class="btn btn-outline">ثبت</button>
+            </div>
+        </div>
+    </EditForm>
+}
+
+@code {
+    private bool IsLoading { get; set; } = false;
+    private readonly SlideDto _slide = new();
+    private async void Submit()
+    {
+        IsLoading = true;
+        var response = await Service.Create(_slide);
+        IsLoading = false;
+        if (response is null) return;
+        await Swal.FireAsync("موقیت", "آیتم با موفیت ثبت شد", "success");
+        NavigationManager.NavigateTo("/Admin/Slides");
+    }
+}

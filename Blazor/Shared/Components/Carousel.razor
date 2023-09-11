@@ -1,0 +1,73 @@
+﻿@using Blazor.Services.Contracts
+@inject ISlideService Service
+
+<div class="slideshow-container">
+    @for (var i = 0; i < _slides.Count; i++)
+    {
+        <div class="mySlides fade @(i == _currentSlide ? "show" : "")">
+            <div class="numbertext">@($"{i + 1} / {_slides.Count}")</div>
+            <img src="@_slides[i].Image" style="width:100%">
+            <div class="text">@_slides[i].Description</div>
+        </div>
+    }
+
+    <a class="prev" @onclick="PreviousSlide">❮</a>
+    <a class="next" @onclick="NextSlide">❯</a>
+</div>
+<br/>
+
+<div style="text-align:center">
+    @for (var j = 0; j < _slides.Count; j++)
+    {
+        
+        var j1 = j;
+        <span class="dot @(j == _currentSlide ? "active" : "")" @onclick="() => GoToSlide(j1)"></span>
+    }
+</div>
+
+@code {
+
+    private List<SlideResDto>? _slides = new();
+
+    private int _currentSlide = 0;
+
+    private void NextSlide()
+    {
+        _currentSlide++;
+        if (_currentSlide >= _slides.Count)
+        {
+            _currentSlide = 0;
+        }
+    }
+
+    private void PreviousSlide()
+    {
+        _currentSlide--;
+        if (_currentSlide < 0)
+        {
+            _currentSlide = _slides.Count - 1;
+        }
+    }
+
+    private void GoToSlide(int index)
+    {
+        Console.WriteLine(index);
+        _currentSlide = index;
+        Console.WriteLine(_currentSlide);
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        _slides = await Service.Get();
+    // Automatically start the slideshow
+        var timer = new System.Timers.Timer(3000); // Change the interval as needed (3 seconds in this example)
+        timer.Elapsed += (sender, e) =>
+        {
+            NextSlide();
+            StateHasChanged();
+        };
+        timer.Start();
+    }
+
+}

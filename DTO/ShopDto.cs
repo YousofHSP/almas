@@ -1,7 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using AutoMapper;
 using Entities;
-using Microsoft.AspNetCore.Http;
 
 namespace DTO;
 

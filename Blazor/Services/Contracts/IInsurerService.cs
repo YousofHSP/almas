@@ -5,6 +5,7 @@ namespace Blazor.Services.Contracts;
 
 public interface IInsurerService
 {
-   Task<IEnumerable<InsurerResDto>?> Get();
+   Task<List<InsurerResDto>?> Get();
+   Task<List<InsurerResDto>?> GetTopInsurers();
    Task<InsurerResDto?> Get(int id);
 }

@@ -55,7 +55,7 @@ public class PackagesController: CrudController<PackageDto, PackageResDto, Packa
         return Ok(packages);
     }
 
-    [HttpPost("{id}/UploadImage")]
+    [HttpPost("{id}/UploadFile")]
     public async Task<ApiResult<PackageResDto>> UploadImage(int id, IFormFile image, CancellationToken cancellationToken)
     {
         var model = await Repository.TableNoTracking.SingleOrDefaultAsync(c => c.Id.Equals(id), cancellationToken);

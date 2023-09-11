@@ -26,9 +26,16 @@
 
 
     <ItemGroup>
-      <Folder Include="uploads\" />
+      <Folder Include="bin\" />
+      <Folder Include="bin\Release\net7.0\" />
       <Folder Include="wwwroot\" />
       <Folder Include="wwwroot\uploads\" />
+    </ItemGroup>
+
+
+
+    <ItemGroup>
+      <None Include="bin\Release\net7.0\MyApi.xml" />
     </ItemGroup>
 
 

@@ -1,0 +1,65 @@
+﻿@page "/Admin/Slides/{Id:int}/Edit"
+@inject IAdminService<Slide, SlideDto, SlideResDto> Service
+@layout AdminLayout
+@inject NavigationManager NavigationManager
+@inject SweetAlertService Swal
+
+@if (_slide is null || _isLoading)
+{
+    <DisplaySpinner/>
+}
+else
+{
+    <EditForm Model="@_slide" OnValidSubmit="@Submit">
+        <DataAnnotationsValidator/>
+        <ValidationSummary class="text-error"/>
+
+        <div class="card w-1/2">
+            <div class="card-body">
+                <div class="form-control">
+                    <label for="title" class="label">
+                        <span class="label-text">@(ModelExtensions.ToDisplay<SlideResDto>(p => p.Title))</span>
+                    </label>
+                    <InputText id="title" class="input input-bordered" @bind-Value="_slide.Title"></InputText>
+                </div>
+                <div class="form-control">
+                    <label for="description" class="label">
+                        <span class="label-text">@(ModelExtensions.ToDisplay<SlideResDto>(p => p.Description))</span>
+                    </label>
+                    <InputTextArea id="description" class="textarea textarea-bordered" @bind-Value="_slide.Description"></InputTextArea>
+                </div>
+                <button type="submit" class="btn btn-outline">ثبت</button>
+            </div>
+        </div>
+    </EditForm>
+}
+@code {
+
+    [Parameter]
+    public int Id { get; set; }
+
+    private bool _isLoading = false;
+
+    private SlideDto _slide = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var slide = await Service.Get(Id);
+        if (slide is not null)
+            _slide = new SlideDto()
+            {
+                Id = Id,
+                Title = slide.Title,
+                Description = slide.Description
+            };
+    }
+    private async Task Submit()
+    {
+        _isLoading = true;
+        var response = await Service.Update(Id, _slide);
+        if (response is null) return;
+        await Swal.FireAsync("موقیت", "آیتم با موفیت ثبت شد", "success");
+        NavigationManager.NavigateTo("/Admin/Slides");
+    }
+
+}

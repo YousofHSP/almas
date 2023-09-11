@@ -53,7 +53,7 @@ public class InsurersController: CrudController<InsurerDto, InsurerResDto, Insur
         }
         return Ok(insurers);
     }
-    [HttpPost("{id}/UploadImage")]
+    [HttpPost("{id}/UploadFile")]
     public async Task<ApiResult<InsurerResDto>> UploadImage(int id, IFormFile image, CancellationToken cancellationToken)
     {
         var model = await Repository.TableNoTracking.SingleOrDefaultAsync(c => c.Id.Equals(id), cancellationToken);
