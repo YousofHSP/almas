@@ -60,7 +60,7 @@ public class ShopsController: BaseController
             .ToListAsync(cancellationToken);
         foreach (var shop in shops)
         {
-            shop.Description = shop.Description.Length > 100 ? shop.Description[..100] + " ..." : shop.Description;
+            shop.Description = shop.Description.Length > 60 ? shop.Description[..60] + " ..." : shop.Description;
             var image = images.FirstOrDefault(u => u.ParentId.Equals(shop.Id));
             if(image is null) continue;
             shop.Image = image.GeneratePath(_siteSettings.Url);

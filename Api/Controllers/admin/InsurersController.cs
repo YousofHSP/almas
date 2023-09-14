@@ -44,8 +44,8 @@ public class InsurersController: CrudController<InsurerDto, InsurerResDto, Insur
         
         foreach (var insurer in insurers)
         {
-            insurer.Description = insurer.Description?.Length > 100
-                ? insurer.Description[..100] + "..."
+            insurer.Description = insurer.Description?.Length > 60
+                ? insurer.Description[..60] + "..."
                 : insurer.Description;
             var image = images.FirstOrDefault(i => i.ParentId.Equals(insurer.Id));
             if(image is null) continue;
@@ -93,6 +93,7 @@ public class InsurersController: CrudController<InsurerDto, InsurerResDto, Insur
             var image = new FileInfo(path);
             if(image.Exists)
                 image.Delete();
+            await _uploadRepository.DeleteAsync(upload, cancellationToken);
         }
         return await base.Delete(id, cancellationToken);
     }

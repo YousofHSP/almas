@@ -47,7 +47,7 @@ public class PackagesController: CrudController<PackageDto, PackageResDto, Packa
         
         foreach (var package in packages)
         {
-            package.Description = package.Description?.Length > 100 ? package.Description[..100] : package.Description;
+            package.Description = package.Description?.Length > 60 ? package.Description[..60] : package.Description;
             if (imageDictionary.TryGetValue(package.Id, out var image))
                 package.Image = image.GeneratePath(_settings.Url);
         }

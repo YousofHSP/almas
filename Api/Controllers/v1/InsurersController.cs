@@ -52,7 +52,7 @@ public class InsurersController : BaseController
         
         foreach (var insurer in insurers)
         {
-            insurer.Description = insurer.Description?.Length > 100 ? insurer.Description[..100] : insurer.Description;
+            insurer.Description = insurer.Description?.Length > 60 ? insurer.Description[..60] : insurer.Description;
             var image = images.FirstOrDefault(i => i.ParentId.Equals(insurer.Id));
             if(image is null) continue;
             insurer.Image = image.GeneratePath(_settings.Url);

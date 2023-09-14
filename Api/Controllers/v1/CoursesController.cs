@@ -5,6 +5,7 @@ using Common.Exceptions;
 using Data.Contracts;
 using DTO;
 using Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
@@ -14,6 +15,7 @@ using WebFramework.Api;
 namespace Api.Controllers.V1;
 
 [ApiVersion("1")]
+[AllowAnonymous]
 public class CoursesController:BaseController
 {
     private readonly IRepository<Course> _repository;
@@ -36,21 +38,18 @@ public class CoursesController:BaseController
     [HttpGet]
     public async Task<ApiResult<List<CourseResDto>>> Get(CancellationToken cancellationToken)
     {
-        var coursesTask = _repository.TableNoTracking
+        var courses = await _repository.TableNoTracking
             .Include(c => c.Lessons)
             .ProjectTo<CourseResDto>(_mapper.ConfigurationProvider)
             .ToListAsync(cancellationToken);
-        var imagesTask = _uploadRepository.TableNoTracking
+        var images = await _uploadRepository.TableNoTracking
             .Where(i => i.Parent.Equals(Parent.Course))
             .ToDictionaryAsync(i => i.ParentId, i => i,cancellationToken);
-        await Task.WhenAll(coursesTask, imagesTask);
-
-        var courses = await coursesTask;
-        var images = await imagesTask;
+        
 
         foreach (var course in courses)
         {
-            course.Description = course.Description.Length > 100 ? course.Description[..100] : course.Description;
+            course.Description = course.Description.Length > 60 ? course.Description[..60] : course.Description;
             if (images.TryGetValue(course.Id, out var image))
                 course.Image = image.GeneratePath(_settings.Url);
         }
@@ -67,8 +66,20 @@ public class CoursesController:BaseController
         if (course is null) throw new NotFoundException("دوره پیدا نشد");
         var image = await _uploadRepository.TableNoTracking.Where(i => i.Parent.Equals(Parent.Course))
             .FirstOrDefaultAsync(i => i.ParentId.Equals(id), cancellationToken);
+        var files = await _uploadRepository.TableNoTracking
+            .Where(i => i.Parent.Equals(Parent.Lesson))
+            .ToListAsync(cancellationToken);
+        
         if (image is not null)
             course.Image = image.GeneratePath(_settings.Url);
+
+        if(course.Lessons is not null)
+            foreach (var lesson in course.Lessons)
+            {
+                var file = files.FirstOrDefault(i => i.ParentId.Equals(lesson.Id));
+                if(file is null) continue;
+                lesson.File = file.GeneratePath(_settings.Url);
+            }
         return Ok(course);
     }
 }

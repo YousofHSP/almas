@@ -12,12 +12,14 @@ builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://almasapi.chbk.run/api/v1/") });
+// builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:44317/api/v1/") });
 builder.Services.AddSweetAlert2();
 
 builder.Services.AddScoped<IShopService, ShopService>();
 builder.Services.AddScoped<IInsurerService, InsurerService>();
 builder.Services.AddScoped<ISlideService, SlideService>();
 builder.Services.AddScoped<IPackageService, PackageService>();
+builder.Services.AddScoped<ICourseService, CourseService>();
 
 // admin services
 builder.Services.AddScoped(typeof(IAdminService<,,>), typeof(AdminService<,,>));

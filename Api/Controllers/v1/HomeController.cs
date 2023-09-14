@@ -54,7 +54,7 @@ public class HomeController : BaseController
             .ToListAsync(cancellationToken);
         foreach (var shop in shops)
         {
-            shop.Description = shop.Description.Length <= 100 ? shop.Description : shop.Description[..100] + " ...";
+            shop.Description = shop.Description.Length <= 60 ? shop.Description : shop.Description[..60] + " ...";
             var image = images.FirstOrDefault(u => u.ParentId.Equals(shop.Id));
             if(image is null) continue;
             shop.Image = image.GeneratePath(_siteSettings.Url);
@@ -77,7 +77,7 @@ public class HomeController : BaseController
 
         foreach (var insurer in insurers)
         {
-            insurer.Description = insurer.Description?.Length > 100 ? insurer.Description[..100] : insurer.Description;
+            insurer.Description = insurer.Description?.Length > 60 ? insurer.Description[..60] : insurer.Description;
             if (images.TryGetValue(insurer.Id, out var image))
                 insurer.Image = image.GeneratePath(_siteSettings.Url);
         }
@@ -117,8 +117,8 @@ public class HomeController : BaseController
 
         foreach (var package in packages)
         {
-            package.Description = package.Description?.Length > 100
-                ? package.Description[..100] + " ..."
+            package.Description = package.Description?.Length > 60
+                ? package.Description[..60] + " ..."
                 : package.Description;
             var image = images.FirstOrDefault(i => i.ParentId.Equals(package.Id));
             if(image is null) continue;

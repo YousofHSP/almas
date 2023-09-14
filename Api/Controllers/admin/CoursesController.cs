@@ -76,7 +76,7 @@ public class CoursesController: CrudController<CourseDto, CourseResDto, Course>
         
         foreach (var lesson in course.Lessons ?? new List<LessonResDto>())
         {
-            lesson.Description = lesson.Description?.Length > 100 ? lesson.Description[..100] : lesson.Description;
+            lesson.Description = lesson.Description?.Length > 60 ? lesson.Description[..60] : lesson.Description;
             var file = files.FirstOrDefault(f => f.ParentId.Equals(lesson.Id));
             if(file is null) continue;
             lesson.File = file.GeneratePath(_settings.Url);

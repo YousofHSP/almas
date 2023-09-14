@@ -54,7 +54,7 @@ else
                     <td>
                         <a href="/Admin/Courses/@_course.Id/Lessons/@lesson.Id" class="btn btn-outline btn-sm">ویرایش</a>
                         <label class="btn btn-outline btn-sm" for="@("file_" + lesson.Id)">
-                            آپلود تصویر
+                            آپلود فایل
                         </label>
                         <EditForm class="hidden" Model="lesson">
                             <InputFile OnChange="@(args => OnInputFileChange(args, lesson.Id))" id="@("file_" + lesson.Id)" class="hidden"/>

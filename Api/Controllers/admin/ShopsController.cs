@@ -49,7 +49,7 @@ public class ShopsController : CrudController<ShopDto, ShopResDto, Shop>
             .ToListAsync(cancellationToken);
         foreach (var item in result)
         {
-            item.Description = item.Description.Length > 100 ? item.Description[..100] : item.Description;
+            item.Description = item.Description.Length > 60 ? item.Description[..60] : item.Description;
             var image = images.FirstOrDefault(i => i.ParentId.Equals(item.Id));
             if (image is null) continue;
             var path = Path.Combine(_settings.Url, "uploads", image.StoredFileName);
@@ -103,6 +103,7 @@ public class ShopsController : CrudController<ShopDto, ShopResDto, Shop>
             var image = new FileInfo(path);
             if(image.Exists)
                 image.Delete();
+            await _uploadRepository.DeleteAsync(upload, cancellationToken);
         }
         return await base.Delete(id, cancellationToken);
     }

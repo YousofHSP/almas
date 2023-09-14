@@ -8,7 +8,7 @@
         <div class="max-w-md">
             <img src="images/logo-white.png" alt="logo">
             <h1 class="mt-10 text-5xl font-bold">باشگاه مشتریان الماس</h1>
-            <p class="py-6">تحت نظارت گروه مشاورین برتر جوان</p>
+            <p class="py-6">تحت نظارت هلدینگ جامع ایران مرسین</p>
         </div>
     </div>
 </section>
@@ -18,7 +18,7 @@
         <UserGroupIcon class="w-10 h-10"></UserGroupIcon>
         بیمه
     </a>
-    <a href="/Shops" class="btn btn-outline w-24 h-24">
+    <a href="/Courses" class="btn btn-outline w-24 h-24">
         <AcademicCapIcon class="w-10 h-10"></AcademicCapIcon>
         آموزش
     </a>
@@ -42,7 +42,7 @@
     <div class="text-center py-20 ">
         <h2 class="text-2xl font-bold">پکیح ها</h2>
     </div>
-    <div class="grid grid-cols-3 gap-4">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
         @if (Packages is null)
         {
             <DisplaySpinner/>
@@ -51,7 +51,7 @@
         {
             @foreach (var package in Packages)
             {
-                <div class="card w-96 bg-base-100 shadow-xl image-full">
+                <div class="card lg:w-96 bg-base-100 shadow-xl image-full">
                     <figure>
                         <img src="@package.Image" alt="Insurers"/>
                     </figure>
@@ -74,18 +74,21 @@
     {
         <DisplaySpinner/>
     }
-    else
+    else if(Insurers.Count > 0)
     {
         <div class="text-center py-20 ">
             <h2 class="text-2xl font-bold">بیمه ها</h2>
         </div>
-        <div class="m-auto grid grid-cols-3 gap-3">
+        <div class="m-auto grid grid-cols-1 lg:grid-cols-3 gap-3">
             @foreach (var insurer in Insurers)
             {
-                <div class="card w-96 bg-base-100 shadow-xl image-full">
-                    <figure>
-                        <img src="@insurer.Image" alt="Insurers"/>
-                    </figure>
+                <div class="card lg:w-96 bg-base-100 shadow-xl image-full">
+                    @if (!string.IsNullOrEmpty(insurer.Image))
+                    {
+                        <figure>
+                            <img src="@insurer.Image" alt="Insurers"/>
+                        </figure>
+                    }
                     <div class="card-body">
                         <h2 class="card-title">@insurer.Title</h2>
                         <p>@insurer.Description</p>
@@ -109,7 +112,7 @@
         <div class="text-center py-20 ">
             <h2 class="text-2xl font-bold">برترین فروشگاه ها</h2>
         </div>
-        <div class="m-auto grid grid-cols-3 gap-3">
+        <div class="m-auto grid grid-cols-1 lg:grid-cols-3 gap-3">
             @foreach (var shop in Shops)
             {
                 <ShopItem Shop="shop"/>

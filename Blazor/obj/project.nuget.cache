@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "s3K1sCED7ty1Sdrrkej5RTkS/luzUjiGGiMPKyNn5ermstVAMHmSy/XoAgkJxSS5k/mqcCGVksKdRj0wRbZN/A==",
+  "dgSpecHash": "9Y5/idfPCNcufIN3pYOQI5hhPz6qgdVIX5DgNrEDImS4oyGnV6B7SKi/d/IXdb9L1Ek10TjKTx6megWW1BEq8g==",
   "success": true,
   "projectFilePath": "G:\\Projects\\C#\\Api\\Almas\\Blazor\\Blazor.csproj",
   "expectedPackageFiles": [
@@ -103,7 +103,7 @@
     "C:\\Users\\youso\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
     "C:\\Users\\youso\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\youso\\.nuget\\packages\\system.windows.extensions\\5.0.0\\system.windows.extensions.5.0.0.nupkg.sha512",
-    "C:\\Users\\youso\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\7.0.10\\microsoft.netcore.app.runtime.mono.browser-wasm.7.0.10.nupkg.sha512"
+    "C:\\Users\\youso\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\7.0.11\\microsoft.netcore.app.runtime.mono.browser-wasm.7.0.11.nupkg.sha512"
   ],
   "logs": []
 }

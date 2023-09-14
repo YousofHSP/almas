@@ -1,0 +1,53 @@
+﻿@page "/Courses/{Id:int}/Lessons"
+@inject ICourseService Service
+
+@if (Course is null)
+{
+    <DisplaySpinner/>
+}
+else
+{
+    <div class="text-center py-20 ">
+        <h2 class="text-2xl font-bold">دوره <strong>@(Course.Title)</strong></h2>
+    </div>
+    <div class="m-auto px-10">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>عنوان</th>
+                <th>توضیحات</th>
+                <th>نوع فایل</th>
+                <th>فایل</th>
+            </tr>
+            </thead>
+            <tbody>
+            @if (Course.Lessons is not null)
+            {
+                foreach (var lesson in Course.Lessons)
+                {
+                    <tr>
+                        <td>@lesson.Title</td>
+                        <td>@lesson.Description</td>
+                        <td>@lesson.LessonType.ToDisplay()</td>
+                        <td> <a href="@lesson.File" download class="btn btn-sm btn-outline">دانلود فایل</a></td>
+                    </tr>
+                }
+            }
+            </tbody>
+        </table>
+    </div>
+}
+
+@code {
+    
+    [Parameter]
+    public int Id { get; set; }
+    
+    private CourseResDto? Course { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Course = await Service.Get(Id);
+    }
+
+}
